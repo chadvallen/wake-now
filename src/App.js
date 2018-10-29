@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
+import Header from './components/Header/Header';
+import routes from './routes';
 
 class App extends Component {
-  state = {
-    counter: 0
-  }
+
+
 
   render() {
     return (
       <div className="App">
- 
-
+      <Header />
+      {routes}
       </div>
     );
   }
