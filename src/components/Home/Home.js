@@ -5,21 +5,18 @@ import { userLogin, isLoggedIn } from '../../ducks/reducer';
 
 class Home extends Component {
 
+  login = () => {
+    const redirectUri = encodeURIComponent(window.location.origin + '/auth/callback');
+    const url = `https://${process.env.REACT_APP_AUTH0_DOMAIN}/authorize?client_id=${process.env.REACT_APP_AUTH0_CLIENT_ID}&scope=openid%20profile%20email&redirect_uri=${redirectUri}&response_type=code`
+    window.location = url;
     
+  }
 
-    
-      login = () => {
-        const redirectUri = encodeURIComponent(window.location.origin + '/auth/callback');
-        const url = `https://${process.env.REACT_APP_AUTH0_DOMAIN}/authorize?client_id=${process.env.REACT_APP_AUTH0_CLIENT_ID}&scope=openid%20profile%20email&redirect_uri=${redirectUri}&response_type=code`
-        window.location = url;
-        
-      }
-    
-      logout = () => {
-        axios.post('/api/logout').then(() => {
-          this.props.userLogin(null)
-        });
-      }
+  logout = () => {
+    axios.post('/api/logout').then(() => {
+      this.props.userLogin(null)
+    });
+  }
 
   render() {
     const { user } = this.props;

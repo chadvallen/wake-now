@@ -13,7 +13,10 @@ class ShoppingCart extends Component {
           : <p>Not loged in</p>}
         {console.log("this.props.user--->", user)}
         { user
-            ? <h3>Name: {user.user.profile_name}</h3>
+            ? <div>
+              <h3>Name: {user.user.profile_name}</h3>
+              <img src={user.user.picture} alt="user"/>
+              </div>
             : <p>Not loged in</p>
         }
       </div>
