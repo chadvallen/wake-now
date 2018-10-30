@@ -1,11 +1,34 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-export default class ShoppingCart extends Component {
+class ShoppingCart extends Component {
   render() {
+    const { user, loggedIn } = this.props
     return (
       <div>
         <h2>Cart</h2>
+        {console.log(loggedIn)}
+        { loggedIn 
+          ? <div>Is logged in</div>
+          : <p>Not loged in</p>}
+        {console.log("this.props.user--->", user)}
+        { user
+            ? <h3>Name: {user.user.profile_name}</h3>
+            : <p>Not loged in</p>
+        }
       </div>
     )
   }
 }
+
+function mapStateToProps(state) {
+  const { user, loggedIn } = state;
+  return {
+    user,
+    loggedIn
+  }
+}
+
+
+
+export default connect(mapStateToProps)(ShoppingCart);

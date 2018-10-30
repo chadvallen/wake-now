@@ -2,8 +2,6 @@ const axios = require('axios');
 
 module.exports = {
     login: (req, res) => {
-        console.log('req.query', req.query);
-        console.log('hi')
         const payload = {
           client_id: process.env.REACT_APP_AUTH0_CLIENT_ID,
           client_secret: process.env.AUTH0_CLIENT_SECRET,
@@ -12,8 +10,6 @@ module.exports = {
           redirect_uri: `http://${req.headers.host}/auth/callback`
         };
     
-        console.log(payload)
-        
         function tradeCodeForAccessToken() {
           return axios.post(`https://${process.env.REACT_APP_AUTH0_DOMAIN}/oauth/token`, payload);
         }
@@ -23,10 +19,9 @@ module.exports = {
           return axios.get(`https://${process.env.REACT_APP_AUTH0_DOMAIN}/userinfo?access_token=${response.data.access_token}`)
         }
         
-        
         function storeUserInfoInDataBase(response) {
           const userData = response.data;
-        //   console.log('userData --->', userData);
+          console.log('userData --->', userData);
       
           return req.app.get('db').find_user_by_auth0_id(userData.sub).then(users1 => {
               console.log('users', users1)

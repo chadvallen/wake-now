@@ -5,13 +5,17 @@ import App from './App';
 
 import { AppContainer } from 'react-hot-loader';
 import { BrowserRouter as BR } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './ducks/store';
 
 const render = () => { 
 ReactDOM.render(
 <AppContainer>
-  <BR>
-    <App />
-  </BR>
+  <Provider store={store}>
+    <BR>
+      <App />
+    </BR>
+  </Provider>
 </AppContainer>, document.getElementById('root'));
 }
 

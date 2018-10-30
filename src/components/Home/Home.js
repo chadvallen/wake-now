@@ -1,20 +1,12 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { userLogin, isLoggedIn } from '../../ducks/reducer';
 
-export default class Home extends Component {
-    constructor() {
-        super();
-        this.state = {
-          user: null,
-        };
-      }
+class Home extends Component {
+
     
-      componentDidMount() {
-        axios.get('/api/user-data').then(response => {
-          console.log(response.data)
-          this.setState({ user: response.data || null })
-        });
-      }
+
     
       login = () => {
         const redirectUri = encodeURIComponent(window.location.origin + '/auth/callback');
@@ -25,20 +17,36 @@ export default class Home extends Component {
     
       logout = () => {
         axios.post('/api/logout').then(() => {
-          this.setState({ user: null });
+          this.props.userLogin(null)
         });
       }
 
   render() {
+    const { user } = this.props;
     return (
+      
       <div>
+        {/* console.log(user) */}
         <h1>HOME</h1>
         <div className="section">
             <button onClick={this.login}>Log in</button>
             {' '}
             <button onClick={this.logout}>Log out</button>
+            {/* <div>Name: {user.name}</div>
+            <div>Email: {user.name}</div> */}
+            {console.log('user---->', user)}
         </div>
       </div>
     )
   }
 }
+
+function mapStateToProps(state) {
+  const { user, loggedIn } = state;
+  return {
+    user,
+    loggedIn
+  }
+}
+
+export default connect(mapStateToProps, {userLogin, isLoggedIn})(Home);
