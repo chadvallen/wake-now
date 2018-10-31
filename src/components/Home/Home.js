@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { userLogin, isLoggedIn } from '../../ducks/reducer';
+import logo from '../../media/drop.png';
+import './Home.css';
 
 class Home extends Component {
 
@@ -19,16 +21,18 @@ class Home extends Component {
   }
 
   render() {
-    const { user } = this.props;
+    const { loggedIn } = this.props;
     return (
       
       <div>
-        <h1>HOME</h1>
-        <div className="section">
-            <button onClick={this.login}>Log in</button>
-            {' '}
-            <button onClick={this.logout}>Log out</button>
-            {console.log('user---->', user)}
+        <h1 className="title">WAKE NOW</h1>
+        <img className="main-logo" src={logo} />
+        <br></br>
+        <div>
+          {loggedIn
+            ? <button onClick={this.logout}>Log out</button>
+            : <button onClick={this.login}>Log in</button>
+          }
         </div>
       </div>
     )

@@ -1,0 +1,41 @@
+.header {
+    height: 50px;
+    background-image: linear-gradient(90deg, #D800FF, #00BAFF, #00FF58);
+    display: flex;
+    justify-content: space-between;
+}
+
+.links {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 30px;
+    
+}
+
+.header-logo {
+    width: 25px;
+    height: 40px;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.links  p {
+    background: transparent;
+    border: none;
+    margin: 15px;
+    font-size: 13px;
+    color: black;
+    
+
+}
+
+.links p:hover {
+    color: rgb(85, 85, 85);
+}
+
+.cart-logo {
+    height: 20px;
+    margin-top: 13px;
+    margin-left: 20px;
+}
+

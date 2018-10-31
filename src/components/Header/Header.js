@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { userLogin, isLoggedIn } from '../../ducks/reducer';
+import './Header.css';
+import cartLogo from '../../media/cart.png';
+import headerLogo from '../../media/white-logo.png';
 
 class Header extends Component {
 
@@ -19,11 +22,12 @@ class Header extends Component {
 
   render() {
     return (
-      <div>
-        <nav>
-          <Link to='/'><button>Home</button></Link>
-          <Link to='/products'><button>Products</button></Link>
-          <Link to='/cart'><button>Cart</button></Link>
+      <div className="header">
+        <img className="header-logo" src={headerLogo} />
+        <nav className="links">
+          <Link style={{ textDecoration: 'none' }} to='/'><p>HOME</p></Link>
+          <Link style={{ textDecoration: 'none' }} to='/products'><p>PRODUCTS</p></Link>
+          <Link style={{ textDecoration: 'none' }} to='/cart'><img className="cart-logo" src={cartLogo} /></Link>
         </nav>
       </div>
     )

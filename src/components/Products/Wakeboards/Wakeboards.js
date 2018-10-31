@@ -16,6 +16,7 @@ export default class Wakeboards extends Component {
 
   displayWakeboards = () => {
     axios.get('/api/products/wakeboards').then(res => {
+      console.log(res.data)
       this.setState({wakeboards: res.data})
     })
   }
