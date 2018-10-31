@@ -7,6 +7,6 @@ import ShoppingCart from './components/ShoppingCart/ShoppingCart';
 export default
 <Switch>
     <Route exact path='/' component={Home}/>
-    <Route exact path='/products' component={Products} />
+    <Route path='/products' component={Products} />
     <Route path='/cart' component={ShoppingCart} />
 </Switch>
