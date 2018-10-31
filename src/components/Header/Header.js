@@ -20,11 +20,10 @@ class Header extends Component {
   render() {
     return (
       <div>
-        <h1>Header</h1>
         <nav>
-          <button><Link to='/'>Home</Link></button>
-          <button><Link to='/products'>Products</Link></button>
-          <button><Link to='/cart'>Cart</Link></button>
+          <Link to='/'><button>Home</button></Link>
+          <Link to='/products'><button>Products</button></Link>
+          <Link to='/cart'><button>Cart</button></Link>
         </nav>
       </div>
     )

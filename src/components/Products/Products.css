@@ -1,0 +1,17 @@
+.video {
+    padding-top: 10px;
+    width: 100vw;
+}
+
+.product-parent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.product-child {
+    flex-basis: 400px;
+    background: lightgray;
+    padding: 20px;
+    margin: 10px;
+}

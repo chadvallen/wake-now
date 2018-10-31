@@ -23,11 +23,12 @@ module.exports = {
           const userData = response.data;
           console.log('userData --->', userData);
       
-          return req.app.get('db').find_user_by_auth0_id(userData.sub).then(users1 => {
-              console.log('users', users1)
-            if (users1.length) {
-              const user = users1[0];
+          return req.app.get('db').find_user_by_auth0_id(userData.sub).then(users => {
+              console.log('users', users)
+            if (users.length) {
+              const user = users[0];
               req.session.user = user;
+              req.session.cart = [];
               res.redirect('/');
             } else {
               return req.app.get('db').create_user([
@@ -38,6 +39,7 @@ module.exports = {
               ]).then(newUsers => {
                 const newUser = newUsers[0];
                 req.session.user = newUser;
+                console.log('newUser--->', newUser)
                 res.redirect('/');
               }).catch(error => {
                 console.log('error inserting user into database', error);

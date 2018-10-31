@@ -26,8 +26,19 @@ app.post('/api/logout', (req, res) => {
   });
   
 app.get('/api/user-data', (req, res) => {
+  // console.log('req.session--->', req.session)
     res.json({ user: req.session.user });
   });
+
+app.get('/session/cart', (req, res) => {
+  res.json({cart: req.session.cart})
+})
+
+app.post('/session/cart', (req, res) => {
+  req.session.cart.push(req.body);
+  console.log('this is my session w cart', req.session)
+  res.json({cart: req.session.cart}) 
+})
   
 app.get('/api/products/wakeboards', PC.getWakeboards);
 app.get('/api/products/waterskis', PC.getWaterskis);

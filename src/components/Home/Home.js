@@ -23,14 +23,11 @@ class Home extends Component {
     return (
       
       <div>
-        {/* console.log(user) */}
         <h1>HOME</h1>
         <div className="section">
             <button onClick={this.login}>Log in</button>
             {' '}
             <button onClick={this.logout}>Log out</button>
-            {/* <div>Name: {user.name}</div>
-            <div>Email: {user.name}</div> */}
             {console.log('user---->', user)}
         </div>
       </div>

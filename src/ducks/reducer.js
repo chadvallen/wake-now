@@ -4,7 +4,7 @@ const INITIAL_STATE = {
 };
 
 const USER_LOGIN = 'USER_LOGIN';
-const UPDATE_LOGGED_IN = 'UPDATE_LOGGED_IN'
+const UPDATE_LOGGED_IN = 'UPDATE_LOGGED_IN';
 
 export function userLogin(user) {
     return {
@@ -19,6 +19,7 @@ export function isLoggedIn(loggedIn) {
         payload: loggedIn
     }
 }
+
 
 function reducer(state=INITIAL_STATE, action) {
     switch(action.type) {
