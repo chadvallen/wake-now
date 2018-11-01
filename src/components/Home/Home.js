@@ -23,7 +23,6 @@ class Home extends Component {
   render() {
     const { loggedIn } = this.props;
     return (
-      
       <div>
         <h1 className="title">WAKE NOW</h1>
         <img className="main-logo" src={logo} />

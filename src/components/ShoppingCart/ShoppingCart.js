@@ -23,8 +23,14 @@ class ShoppingCart extends Component {
 
   displayCart = () => {
     axios.get('/session/cart').then(res => {
-      console.log(res.data.cart)
       this.setState({cart: res.data.cart})
+    })
+  }
+
+  deleteFromCart = (id) => {
+    axios.delete(`/session/cart/${id}`).then(res => {
+      // this.setState({cart: res.data.cart})
+      this.displayCart();
     })
   }
 
@@ -34,27 +40,32 @@ class ShoppingCart extends Component {
     return (
       <div>
         <h2>Cart</h2>
-        {console.log(loggedIn)}
         { loggedIn 
           ?
           <div>
               <h3>Name: {user.user.profile_name}</h3>
               <img src={user.user.picture} alt="user"/>
-            {this.state.cart.map(item => {
-              return (
-                <div key={item.id} >
-                  <h3>{item.name}</h3>
-                  <img src={item.image_url}  />
-                  <p>{item.description}</p>
-                  <h5>${item.price}</h5>
-                </div>
-              )
-            })}
           </div>
           : <div>
               <p>Not loged in</p>
               <p>Please <button onClick={this.login}>login</button></p>
-              </div>}
+            </div>
+        }
+        { loggedIn
+            ? this.state.cart.map(item => {
+              return (
+                <div className="product-child" key={item.id} >
+                  <h3>{item.name}</h3>
+                  <img src={item.image_url}  />
+                  <p>{item.description}</p>
+                  <h5>${item.price}</h5>
+                  <button onClick={() => this.deleteFromCart(item.id)}>Delete</button>
+                </div>
+              )
+              })
+          : <p>Cart empty</p>
+          }
+            
         {console.log("this.props.user--->", user)}
       </div>
     )

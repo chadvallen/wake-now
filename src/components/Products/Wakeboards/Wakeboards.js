@@ -16,13 +16,12 @@ export default class Wakeboards extends Component {
 
   displayWakeboards = () => {
     axios.get('/api/products/wakeboards').then(res => {
-      console.log(res.data)
       this.setState({wakeboards: res.data})
     })
   }
 
-  addToCart = (name, image_url, description, price) => {
-    axios.post('/session/cart', {name, image_url, description, price}).then(() => {
+  addToCart = (id, name, image_url, description, price) => {
+    axios.post('/session/cart', {id, name, image_url, description, price}).then(() => {
       console.log('Item added to cart');
     })
   }
@@ -32,11 +31,11 @@ export default class Wakeboards extends Component {
       return (
         <div className="product-child" key={item.id}>
           
-          <h3>{item.name}</h3>
+          <h4>{item.name}</h4>
           <img src={item.image_url} alt="wakeboard" />
           <p>{item.description}</p>
           <h5>${item.price}</h5>
-          <button onClick={() => this.addToCart(item.name, item.image_url, item.description, item.price)}>Add to Cart</button>
+          <button onClick={() => this.addToCart(item.id, item.name, item.image_url, item.description, item.price)}>Add to Cart</button>
           
         </div>
       )

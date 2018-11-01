@@ -3,9 +3,13 @@
 }
 
 body {
-  background: #1D1D1D;
+  background: rgb(242, 242, 242);
 }
 
-h1, h2, h3, h4, h5, p {
-  color: white;
+h1, h2, h3{
+  color: rgb(92, 92, 92);
+}
+
+p, h4, h5 {
+  color: rgb(24, 24, 24);
 }

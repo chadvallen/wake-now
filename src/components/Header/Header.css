@@ -1,5 +1,5 @@
 .header {
-    height: 50px;
+    height: 80px;
     background-image: linear-gradient(90deg, #D800FF, #00BAFF, #00FF58);
     display: flex;
     justify-content: space-between;
@@ -9,14 +9,15 @@
     display: flex;
     justify-content: flex-end;
     margin-right: 30px;
+    align-items: center;
     
 }
 
 .header-logo {
-    width: 25px;
-    height: 40px;
-    margin-left: 20px;
-    margin-top: 5px;
+    width: 30px;
+    height: 45px;
+    margin-left: 50px;
+    margin-top: 18px;
 }
 
 .links  p {
@@ -35,7 +36,7 @@
 
 .cart-logo {
     height: 20px;
-    margin-top: 13px;
+   
     margin-left: 20px;
 }
 
