@@ -11,13 +11,14 @@ export default class Products extends Component {
       <div>
         
         <div className="subheader">
-        <Link to='/products/wakeboards'><button>Wakeboards</button></Link>
+      
+        <Link to='/products/wakeboards' className="link-text"><div className="wakeboard overlay link"></div>Wakeboard</Link>
         {' '}
-        <Link to='/products/waterskis'><button>Waterskis</button></Link>
+        <Link to='/products/waterskis' className="link-text"><div className="waterski overlay link"></div>Waterskis</Link>
         {' '}
-        <Link to='/products/tubes'><button>Tubes</button></Link>
+        <Link to='/products/tubes' className="link-text"><div className="tube overlay link"></div>Tubes</Link>
         {' '}
-        <Link to='/products/lifevests'><button>Lifevests</button></Link>
+        <Link to='/products/lifevests' className="link-text"><div className="lifevest overlay link"></div>Life Vests</Link>
         </div>
         
         {productRoutes}

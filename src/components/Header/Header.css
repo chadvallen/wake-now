@@ -3,6 +3,8 @@
     background-image: linear-gradient(90deg, #D800FF, #00BAFF, #00FF58);
     display: flex;
     justify-content: space-between;
+    box-shadow: 0 5px 10px  rgb(160, 160, 160);
+    
 }
 
 .links {

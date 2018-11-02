@@ -44,7 +44,7 @@ class ShoppingCart extends Component {
           ?
           <div>
               <h3>Name: {user.user.profile_name}</h3>
-              <img src={user.user.picture} alt="user"/>
+              <img src={user.user.picture} alt={user.user.profile_name}/>
           </div>
           : <div>
               <p>Not loged in</p>
@@ -56,7 +56,7 @@ class ShoppingCart extends Component {
               return (
                 <div className="product-child" key={item.id} >
                   <h3>{item.name}</h3>
-                  <img src={item.image_url}  />
+                  <img src={item.image_url}  alt={item.name}/>
                   <p>{item.description}</p>
                   <h5>${item.price}</h5>
                   <button onClick={() => this.deleteFromCart(item.id)}>Delete</button>

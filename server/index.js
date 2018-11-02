@@ -57,6 +57,7 @@ app.get('/api/products/wakeboards', PC.getWakeboards);
 app.get('/api/products/waterskis', PC.getWaterskis);
 app.get('/api/products/tubes', PC.getTubes);
 app.get('/api/products/lifevests', PC.getLifevests);
+app.get('/api/products/:id', PC.getProductDetail);
 
 const path = require('path')
 app.get('*', (req, res)=>{

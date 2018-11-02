@@ -23,11 +23,11 @@ class Header extends Component {
   render() {
     return (
       <div className="header">
-        <img className="header-logo" src={headerLogo} />
+        <img className="header-logo" src={headerLogo} alt='logo'/>
         <nav className="links">
           <Link style={{ textDecoration: 'none' }} to='/'><p>HOME</p></Link>
           <Link style={{ textDecoration: 'none' }} to='/products'><p>PRODUCTS</p></Link>
-          <Link style={{ textDecoration: 'none' }} to='/cart'><img className="cart-logo" src={cartLogo} /></Link>
+          <Link style={{ textDecoration: 'none' }} to='/cart'><img className="cart-logo" src={cartLogo} alt='cart' /></Link>
         </nav>
       </div>
     )

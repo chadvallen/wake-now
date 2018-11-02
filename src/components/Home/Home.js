@@ -25,7 +25,7 @@ class Home extends Component {
     return (
       <div>
         <h1 className="title">WAKE NOW</h1>
-        <img className="main-logo" src={logo} />
+        <img className="main-logo" src={logo} alt='logo'/>
         <br></br>
         <div>
           {loggedIn

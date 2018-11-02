@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import '../Products.css';
+import { Link } from 'react-router-dom';
 
 export default class Waterskis extends Component {
   constructor() {
@@ -21,27 +22,22 @@ export default class Waterskis extends Component {
     })
   }
 
-  addToCart = (id, name, image_url, description, price) => {
-    axios.post('/session/cart', {id, name, image_url, description, price}).then(() => {
-      console.log('Item added to cart');
-    })
-  }
 
   render() {
     let waterskiList = this.state.waterskis.map(item => {
       return (
         <div className="product-child" key={item.id}>
-          <h4>{item.name}</h4>
-          <img src={item.image_url} alt="waterski" />
-          <p>{item.description}</p>
-          <h5>${item.price}</h5>
-          <button onClick={() => this.addToCart(item.id, item.name, item.image_url, item.description, item.price)}>Add to Cart</button>
+          <Link to={`/products/${item.id}`}>
+            <h4>{item.name}</h4>
+            <img src={item.image_url} alt={item.title} />
+            <h5>${item.price}</h5>
+          </Link>
         </div>
       )
     })
     return (
       <div>
-        <h1>Waterskis</h1>
+        <h1 className="product-title">Waterskis</h1>
         <div className="product-parent">
         {waterskiList}
         </div>

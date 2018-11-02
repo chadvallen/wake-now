@@ -37,5 +37,16 @@ module.exports = {
             res.sendStatus(500)
             console.log('Error on getLifevests', error)
         })
+    },
+
+    getProductDetail: (req, res) => {
+        const db = req.app.get('db');
+        const { id } = req.params;
+        db.get_product_detail(id).then(item => {
+            res.status(200).json(item)
+        }).catch(error => {
+            res.sendStatus(500)
+            console.log('Error on getProductDetail', error)
+        })
     }
 }
