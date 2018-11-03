@@ -13,7 +13,7 @@ create table products (
     name varchar not null,
     description varchar not null,
     image_url text not null,
-    price varchar not null
+    price int not null
 );
 
 insert into products (type, name, description, image_url, price)

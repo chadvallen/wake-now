@@ -23,12 +23,18 @@ class Header extends Component {
   render() {
     return (
       <div className="header">
+      <div className="flex-parent">
         <img className="header-logo" src={headerLogo} alt='logo'/>
-        <nav className="links">
-          <Link style={{ textDecoration: 'none' }} to='/'><p>HOME</p></Link>
-          <Link style={{ textDecoration: 'none' }} to='/products'><p>PRODUCTS</p></Link>
-          <Link style={{ textDecoration: 'none' }} to='/cart'><img className="cart-logo" src={cartLogo} alt='cart' /></Link>
-        </nav>
+          <p className="header-title">WAKE NOW</p>
+          </div>
+          <div>
+          <nav className="links">
+            <Link style={{ textDecoration: 'none' }} to='/'><p>HOME</p></Link>
+            <Link style={{ textDecoration: 'none' }} to='/products'><p>PRODUCTS</p></Link>
+            <Link style={{ textDecoration: 'none' }} to='/user'><p>USER</p></Link>
+            <Link style={{ textDecoration: 'none' }} to='/cart'><img className="cart-logo" src={cartLogo} alt='cart' /></Link>
+          </nav>
+        </div>
       </div>
     )
   }

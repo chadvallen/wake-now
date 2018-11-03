@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import { userLogin } from '../../ducks/reducer';
 
 class ShoppingCart extends Component {
   constructor(){
     super();
     this.state = {
-      cart: []
+      cart: [],
+      total: 0
     }
   }
 
@@ -23,41 +25,36 @@ class ShoppingCart extends Component {
 
   displayCart = () => {
     axios.get('/session/cart').then(res => {
-      this.setState({cart: res.data.cart})
+      console.log('res.data.cart --->', res.data.cart)
+      let total = 0;
+      if (res.data.cart !== undefined) {
+        res.data.cart.map(item => {
+          return total += item.price
+        })
+      } 
+      this.setState({cart: res.data.cart, total: total})
     })
   }
 
   deleteFromCart = (id) => {
-    axios.delete(`/session/cart/${id}`).then(res => {
-      // this.setState({cart: res.data.cart})
-      this.displayCart();
+    axios.delete(`/session/cart/${id}`).then(() => {
+      
     })
+    this.displayCart();
   }
 
   render() {
-
-    const { user, loggedIn } = this.props
+    
+    const {  loggedIn } = this.props
     return (
       <div>
-        <h2>Cart</h2>
-        { loggedIn 
-          ?
-          <div>
-              <h3>Name: {user.user.profile_name}</h3>
-              <img src={user.user.picture} alt={user.user.profile_name}/>
-          </div>
-          : <div>
-              <p>Not loged in</p>
-              <p>Please <button onClick={this.login}>login</button></p>
-            </div>
-        }
+        <h3>Cart</h3>
         { loggedIn
             ? this.state.cart.map(item => {
               return (
                 <div className="product-child" key={item.id} >
                   <h3>{item.name}</h3>
                   <img src={item.image_url}  alt={item.name}/>
-                  <p>{item.description}</p>
                   <h5>${item.price}</h5>
                   <button onClick={() => this.deleteFromCart(item.id)}>Delete</button>
                 </div>
@@ -65,8 +62,7 @@ class ShoppingCart extends Component {
               })
           : <p>Cart empty</p>
           }
-            
-        {console.log("this.props.user--->", user)}
+          <p>Total {this.state.total}</p>
       </div>
     )
   }
@@ -80,4 +76,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(ShoppingCart);
+export default connect(mapStateToProps, {userLogin})(ShoppingCart);

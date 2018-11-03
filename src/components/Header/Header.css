@@ -4,7 +4,21 @@
     display: flex;
     justify-content: space-between;
     box-shadow: 0 5px 10px  rgb(160, 160, 160);
-    
+    align-items: center;
+}
+
+
+.header-title {
+    font-family: 'FatFrank', cursive;
+    font-size: 26px;
+    color: white;
+}
+
+.flex-parent {
+    width: 40%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .links {
@@ -18,8 +32,8 @@
 .header-logo {
     width: 30px;
     height: 45px;
-    margin-left: 50px;
-    margin-top: 18px;
+    margin-left: 20px;
+    margin-right: 10px;
 }
 
 .links  p {

@@ -1,10 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Bowlby+One+SC');
+@import url('https://fonts.googleapis.com/css?family=Erica+One');
 
 .title {
-    font-size: 80px;
-    font-family: 'Bowlby One SC', cursive;
-    margin: 40px;
+    font-size: 130px;
+    font-family: 'FatFrank', cursive;
+    margin: 50px auto 20px auto;
+    color: rgb(0, 179, 233);
 }
+
 
 .main-logo {
     display: block;
