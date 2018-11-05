@@ -27,7 +27,7 @@ export default class Waterskis extends Component {
     let waterskiList = this.state.waterskis.map(item => {
       return (
         <div className="product-child" key={item.id}>
-          <Link to={`/products/${item.id}`}>
+          <Link to={`/products/${item.type}/${item.id}`} style={{ textDecoration: 'none' }}>
             <h4>{item.name}</h4>
             <img src={item.image_url} alt={item.title} />
             <h5>${item.price}</h5>

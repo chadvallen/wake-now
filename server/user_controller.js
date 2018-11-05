@@ -49,8 +49,6 @@ module.exports = {
             res.status(500).json({ message: 'Error on server!, sorry bro' });
           });
         }
-         
-        // Final code; uncomment after completing steps 1-4 above.
         
         tradeCodeForAccessToken()
         .then(accessToken => tradeAccessTokenForUserInfo(accessToken))

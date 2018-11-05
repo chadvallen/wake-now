@@ -27,7 +27,7 @@ export default class Wakeboards extends Component {
     let wakeboardList = this.state.wakeboards.map(item => {
       return (
         <div className="product-child" key={item.id}>
-          <Link to={`/products/${item.id}`}>
+          <Link to={`/products/${item.type}/${item.id}`} style={{ textDecoration: 'none' }}>
             <h4>{item.name}</h4>
             <img src={item.image_url} alt={item.title} />
             <h5>${item.price}</h5>

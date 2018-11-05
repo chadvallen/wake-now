@@ -6,6 +6,12 @@ create table users (
     picture text not null
 );
 
+alter table users add column admin bool default false;
+
+update users 
+set admin = true
+where auth0_id = 'github|39601915';
+
 
 create table products (
     id serial primary key,

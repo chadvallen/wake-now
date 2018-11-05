@@ -9,9 +9,7 @@ class User extends Component {
     const redirectUri = encodeURIComponent(window.location.origin + '/auth/callback');
     const url = `https://${process.env.REACT_APP_AUTH0_DOMAIN}/authorize?client_id=${process.env.REACT_APP_AUTH0_CLIENT_ID}&scope=openid%20profile%20email&redirect_uri=${redirectUri}&response_type=code`
     window.location = url;
-    
   }
-
 
   logout = () => {
     axios.post('/api/logout').then(() => {
@@ -22,6 +20,7 @@ class User extends Component {
 
   render() {
     const { user, loggedIn } = this.props;
+    console.log(user)
     return (
       <div>
          <div>
@@ -35,9 +34,14 @@ class User extends Component {
               <p>Not loged in</p>
             </div>
         }
-          {loggedIn
+          { loggedIn
             ? <button onClick={this.logout}>Log Out</button>
             : <button onClick={this.login}>Log in</button>
+          }
+          {
+            loggedIn && user.user.admin 
+            ? <p>Is admin</p>
+            : ''
           }
         </div>
       </div>

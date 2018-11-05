@@ -25,7 +25,7 @@ export default class LifeVests extends Component {
     let lifevestList = this.state.lifevests.map(item => {
       return (
         <div className="product-child" key={item.id}>
-          <Link to={`/products/${item.id}`}>
+          <Link to={`/products/${item.type}/${item.id}`} style={{ textDecoration: 'none' }}>
             <h4>{item.name}</h4>
             <img src={item.image_url} alt={item.title} />
             <h5>${item.price}</h5>

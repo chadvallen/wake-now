@@ -48,5 +48,27 @@ module.exports = {
             res.sendStatus(500)
             console.log('Error on getProductDetail', error)
         })
+    },
+
+    addProduct: (req, res) => {
+        const db = req.app.get('db');
+        const { type, name, description, image_url, price } = req.body;
+        db.add_product(type, name, description, image_url, price).then(item => {
+            res.status(200).json(item)
+        }).catch(error => {
+            res.sendStatus(500)
+            console.log('Error on addProduct', error)
+        })
+    },
+
+    removeProduct: (req, res) => {
+        const db = req.app.get('db');
+        const { id } = req.params;
+        db.remove_product(id).then(item => {
+            res.sendStatus(200)
+        }).catch(error => {
+            res.sendStatus(500)
+            console.log('Error on removeProduct', error)
+        })
     }
 }

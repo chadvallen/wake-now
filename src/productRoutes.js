@@ -13,5 +13,5 @@ export default  <Switch>
     <Route path='/products/waterskis' component={Waterskis} />
     <Route path='/products/tubes' component={Tubes} />
     <Route path='/products/lifevests' component={LifeVests} />
-    <Route path='/products/:id' component={ProductDetail} />
+    <Route path='/products/:type/:id' component={ProductDetail} />
 </Switch>
