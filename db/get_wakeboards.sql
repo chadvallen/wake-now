@@ -1,2 +1,3 @@
 select * from products
-where type = 'wakeboard';
+where type = 'wakeboard'
+order by id asc;

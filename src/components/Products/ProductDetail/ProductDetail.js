@@ -8,7 +8,8 @@ class ProductDetail extends Component {
     constructor(){
         super();
         this.state = {
-            product: []
+            product: [],
+            price: 0
         }
     }
 
@@ -37,6 +38,20 @@ class ProductDetail extends Component {
         })
     }
 
+    updatePrice = (price, id) => {
+        axios.put(`/api/products/${id}`, {price}).then(() => {
+            alert('Price Updated')
+        }).catch(error => {
+            console.error('Error on updatePrice FE', error)
+        })
+        this.displayProductDetail();
+    }
+
+
+    handleInputs = e => {
+        this.setState({[e.target.name]: e.target.value})
+    }
+
   render() {
       const { user, loggedIn } = this.props;
       let product = this.state.product.map(item => {
@@ -50,11 +65,14 @@ class ProductDetail extends Component {
                   <br></br>
                   <Link to={`/products/${item.type}s`} >Back</Link>
                   {
-                      loggedIn && user.user.admin 
-                      ? <div>
-                          <button onClick={() => this.deleteProduct(item.id)}>Remove</button>
-                      </div>
-                      : console.log('Is not admin')
+                    loggedIn && user.user.admin 
+                    ? <div>
+                        <button onClick={() => this.deleteProduct(item.id)}>Remove</button>
+                        <p>Update Price: </p><input name='price' onChange={e => this.handleInputs(e)}></input>
+                        {console.log(item.price, item.id)}
+                        <button onClick={() => this.updatePrice(this.state.price, item.id)}>Update</button>
+                    </div>
+                    : console.log('Is not admin')
                   }
               </div>
           )

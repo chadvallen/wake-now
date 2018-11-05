@@ -61,6 +61,18 @@ module.exports = {
         })
     },
 
+    updatePrice: (req, res) => {
+        const db = req.app.get('db');
+        const { id } = req.params;
+        const { price } = req.body;
+        db.update_price(price, id).then(item => {
+            res.status(200).json(item)
+        }).catch(error => {
+            res.sendStatus(500)
+            console.log('Error on updatePrice', error)
+        })
+    },
+
     removeProduct: (req, res) => {
         const db = req.app.get('db');
         const { id } = req.params;

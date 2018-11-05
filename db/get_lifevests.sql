@@ -1,2 +1,3 @@
 select * from products
-where type = 'lifevest';
+where type = 'lifevest'
+order by id asc;;

@@ -56,8 +56,7 @@ class Products extends Component {
         
         {productRoutes}
 
-        {
-          
+        { 
           loggedIn && user.user.admin 
           ? <div className="inputs">
               <h3>Add Product</h3>

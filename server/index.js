@@ -59,6 +59,7 @@ app.get('/api/products/tubes', PC.getTubes);
 app.get('/api/products/lifevests', PC.getLifevests);
 app.get('/api/products/:id', PC.getProductDetail);
 app.post('/api/products', PC.addProduct);
+app.put('/api/products/:id', PC.updatePrice);
 app.delete('/api/products/:id', PC.removeProduct);
 
 const path = require('path')
