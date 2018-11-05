@@ -15,7 +15,6 @@
 }
 
 .flex-parent {
-    width: 40%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -51,7 +50,7 @@
 }
 
 .links p:active {
-    color: rgb(28, 28, 28);
+    color: rgb(255, 29, 255);
 }
 
 .cart-logo {

@@ -23,10 +23,12 @@ class Header extends Component {
   render() {
     return (
       <div className="header">
+      <Link style={{ textDecoration: 'none' }} to='/'>
       <div className="flex-parent">
         <img className="header-logo" src={headerLogo} alt='logo'/>
           <p className="header-title">WAKE NOW</p>
           </div>
+          </Link>
           <div>
           <nav className="links">
             <Link style={{ textDecoration: 'none' }} to='/'><p>HOME</p></Link>
