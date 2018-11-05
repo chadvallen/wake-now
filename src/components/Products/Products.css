@@ -78,7 +78,7 @@
 .link-text {
     color: rgb(243, 110, 255);
     text-decoration: none;
-    font-family: 'FatFrank';
+    font-family: 'FatFrank', Impact, sans-serif;
     font-size: 20px;
 }
 
@@ -94,7 +94,7 @@
 
 h4 {
     font-size: 20px;
-    font-family: 'FatFrank';
+    font-family: 'FatFrank', Impact, sans-serif;
     color: rgb(24, 201, 24);
 }
 
