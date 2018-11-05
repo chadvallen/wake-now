@@ -58,8 +58,8 @@ class ProductDetail extends Component {
           return (
               <div key={item.id}>
                   <h4 className="product-title">{item.name}</h4>
-                  <img src={item.image_url} alt="product" />
-                  <p>{item.description}</p>
+                  <img src={item.image_url} alt="product" className="detail-img"/>
+                  <div className="detail-description">{item.description}</div>
                   <p>${item.price}</p>
                   <button onClick={() => this.addToCart(item.id, item.name, item.image_url, item.description, item.price)}>Add to Cart</button>
                   <br></br>
