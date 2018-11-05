@@ -8,7 +8,7 @@
 .product-child {
     flex-basis: 400px;
     background: white;
-    border: 1px solid rgb(223, 223, 223);
+    border: 2px solid rgb(225, 244, 254);
     border-radius: 5px;
     padding: 20px;
     margin: 10px;
@@ -76,8 +76,10 @@
 }
 
 .link-text {
-    color: rgb(52, 52, 52);
+    color: rgb(243, 110, 255);
     text-decoration: none;
+    font-family: 'FatFrank', cursive;
+    font-size: 20px;
 }
 
 .product-title {
@@ -88,4 +90,10 @@
 
 .inputs {
     margin-top: 200px;
+}
+
+h4 {
+    font-size: 20px;
+    font-family: 'FatFrank', cursive;
+    color: rgb(24, 201, 24);
 }

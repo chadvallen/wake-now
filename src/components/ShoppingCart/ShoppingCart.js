@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { userLogin } from '../../ducks/reducer';
+import './ShoppingCart.css';
 
 class ShoppingCart extends Component {
   constructor(){

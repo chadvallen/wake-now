@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { userLogin, isLoggedIn } from '../../ducks/reducer';
 import axios from 'axios';
+import './User.css';
 
 class User extends Component {
 
@@ -27,8 +28,8 @@ class User extends Component {
          { loggedIn 
           ?
           <div>
-              <h3>Name: {user.user.profile_name}</h3>
-              <img src={user.user.picture} alt={user.user.profile_name}/>
+              <h3 className="user-name" >Name: {user.user.profile_name}</h3>
+              <img src={user.user.picture} alt={user.user.profile_name} className="user-img" />
           </div>
           : <div>
               <p>Not loged in</p>

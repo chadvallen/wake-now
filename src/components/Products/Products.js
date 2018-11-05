@@ -45,7 +45,7 @@ class Products extends Component {
         
         <div className="subheader">
       
-        <Link to='/products/wakeboards' className="link-text"><div className="wakeboard overlay link"></div>Wakeboard</Link>
+        <Link to='/products/wakeboards' className="link-text"><div className="wakeboard overlay link"></div>Wakeboards</Link>
         {' '}
         <Link to='/products/waterskis' className="link-text"><div className="waterski overlay link"></div>Waterskis</Link>
         {' '}

@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Erica+One');
-
 .title {
     font-size: 130px;
     font-family: 'FatFrank', cursive;
@@ -13,4 +11,5 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 40px;
+    max-width: 300px;
 }
