@@ -6,6 +6,7 @@ require('dotenv').config();
 const UC = require('./user_controller');
 const PC = require('./products_controller');
 
+
 const app = express();
 app.use(session({
     secret: process.env.SESSION_SECRET,
@@ -17,6 +18,20 @@ app.use(bodyParser.json())
 massive(process.env.CONNECTION_STRING).then(db => app.set('db', db));
 
 app.use( express.static( `${__dirname}/../build` ) );
+
+var stripe = require("stripe")("sk_test_AmvwHBSroJSEUm4Y9TLxJ746");
+
+app.post('/api/stripe', (req, res) => {
+  const token = req.body.body.id;
+  console.log(token)
+  stripe.charges.create({
+      amount: req.body.amount,
+      currency: 'usd',
+      description: 'Order Id',
+      source: token,
+    });
+    
+})
 
 app.get('/auth/callback', UC.login);
     

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { userLogin } from '../../ducks/reducer';
+import  StripeCheckout from 'react-stripe-checkout';
 import './ShoppingCart.css';
 
 class ShoppingCart extends Component {
@@ -44,6 +45,19 @@ class ShoppingCart extends Component {
     this.displayCart();
   }
 
+  onToken = (token) => {
+    axios.post('/api/stripe', {
+      method: 'POST',
+      body: token,
+      amount: this.state.total * 100
+    }).then(response => {
+      response.json().then(data => {
+        console.log('data', data)
+        alert(`We are in business, ${data.email}`);
+      });
+    });
+  }
+
   render() {
     
     const {  loggedIn } = this.props
@@ -61,9 +75,16 @@ class ShoppingCart extends Component {
                 </div>
               )
               })
-          : <p>Cart empty</p>
+            : <p>Cart empty</p>
           }
-          <p>Total {this.state.total}</p>
+          <p>Total {this.state.total}.00</p>
+          <div>
+          <StripeCheckout
+             token={this.onToken}
+             stripeKey="pk_test_Q2WPHWWxe9LqryczmA0WuuUx"
+             amount= {this.state.total * 100}
+             />
+          </div>
       </div>
     )
   }
