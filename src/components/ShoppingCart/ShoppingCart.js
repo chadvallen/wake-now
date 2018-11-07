@@ -40,7 +40,7 @@ class ShoppingCart extends Component {
 
   deleteFromCart = (id) => {
     axios.delete(`/session/cart/${id}`).then(() => {
-      
+      console.log('Deleted from cart')
     })
     this.displayCart();
   }
@@ -51,15 +51,39 @@ class ShoppingCart extends Component {
       body: token,
       amount: this.state.total * 100
     }).then(response => {
-      response.json().then(data => {
-        console.log('data', data)
-        alert(`We are in business, ${data.email}`);
-      });
+      console.log(token.card)
+        if (response.data.success) {
+          axios.post('/api/orders', {
+            name: token.card.name,
+            shipping_address: token.card.address_line1,
+            city: token.card.address_city,
+            state_name: token.card.address_state,
+            zipcode: token.card.address_zip,
+            user_id: this.props.user.user.id
+          }).then(response => {
+            for (let i = 0; i < this.state.cart.length; i++) {
+              axios.post('/api/line_items', {
+                order_id: response.data[0].id,
+                product_id: this.state.cart[i].id
+              }).then(() => {
+                console.log('Success!')
+                if (i === this.state.cart.length - 1) {
+                  console.log('It worked')
+                  this.setState({total: 0})
+                  this.displayCart();
+                }
+              }).catch(error => {
+                console.log('error', error)
+              })
+           }}).catch(error => {
+            console.log('Error on addToOrders', error)
+          })
+        }
     });
+    
   }
 
   render() {
-    
     const {  loggedIn } = this.props
     return (
       <div>
@@ -83,6 +107,8 @@ class ShoppingCart extends Component {
              token={this.onToken}
              stripeKey="pk_test_Q2WPHWWxe9LqryczmA0WuuUx"
              amount= {this.state.total * 100}
+             shippingAddress
+             billingAddress
              />
           </div>
       </div>

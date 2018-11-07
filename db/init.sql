@@ -12,7 +12,6 @@ update users
 set admin = true
 where auth0_id = 'github|39601915';
 
-
 create table products (
     id serial primary key,
     type varchar not null,
@@ -20,6 +19,18 @@ create table products (
     description varchar not null,
     image_url text not null,
     price int not null
+);
+
+create table orders (
+    id serial primary key,
+    shipping_address text not null, 
+    user_id int references users(id)
+);
+
+create table line_items (
+    id serial primary key,
+    order_id int references orders(id),
+    product_id int references products(id)
 );
 
 insert into products (type, name, description, image_url, price)
