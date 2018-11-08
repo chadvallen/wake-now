@@ -87,8 +87,8 @@ app.post('/api/stripe', (req, res) => {
 
 app.post('/api/orders', (req, res) => {
   const db = req.app.get('db');
-  const { shipping_address, user_id } = req.body;
-  db.add_to_orders(shipping_address, user_id).then(order => {
+  const { name, shipping_address, city, state_name, zipcode, user_id } = req.body;
+  db.add_to_orders(name, shipping_address, city, state_name, zipcode, user_id).then(order => {
     res.status(200).send(order)
   }).catch(error => {
     console.log('Error on addToOrders', error)
@@ -104,6 +104,15 @@ app.post('/api/line_items', (req, res) => {
     console.log('Error on addToLineItems', error)
   })
   req.session.cart = [];
+})
+
+app.get('/api/admin_table', (req, res) => {
+  const db = req.app.get('db');
+  db.get_admin_table().then(orders => {
+    res.status(200).send(orders)
+  }).catch(error => {
+    console.log('Error on getAdminTable', error)
+  })
 })
 
 const path = require('path')

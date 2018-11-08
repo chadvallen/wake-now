@@ -23,7 +23,11 @@ create table products (
 
 create table orders (
     id serial primary key,
+    name varchar not null,
     shipping_address text not null, 
+    city varchar not null,
+    state_name text not null,
+    zipcode int not null,
     user_id int references users(id)
 );
 

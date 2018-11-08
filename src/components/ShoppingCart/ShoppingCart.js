@@ -80,7 +80,6 @@ class ShoppingCart extends Component {
           })
         }
     });
-    
   }
 
   render() {

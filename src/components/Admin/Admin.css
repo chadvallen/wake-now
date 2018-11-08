@@ -1,0 +1,28 @@
+.parent {
+    display: grid;
+    grid-template-columns: 100px 120px 200px 200px 100px 100px 100px;
+    
+   width: 920px;
+    margin: 0 auto;
+}
+
+.child {
+    height: 20px;
+    padding: 10px;
+   
+}
+
+.parent:nth-child(2n -1) {
+    background: rgb(106, 255, 153);
+}
+
+.parent:nth-child(1) {
+    background-color: rgb(0, 166, 255);
+    color: white;
+    font-size: 18px;
+}
+
+.admin-header {
+    font-size: 30px;
+    margin: 20px;
+}

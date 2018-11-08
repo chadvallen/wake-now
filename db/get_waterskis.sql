@@ -1,3 +1,3 @@
 select * from products
 where type = 'waterski'
-order by id asc;;
+order by id asc;
