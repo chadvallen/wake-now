@@ -7,8 +7,25 @@ import './Header.css';
 import cartLogo from '../../media/cart.png';
 import headerLogo from '../../media/white-logo.png';
 import wakenow from '../../media/wakenow.png';
+import '../../App.scss'
+import menu from '../../media/menu.png';
 
 class Header extends Component {
+  constructor() {
+    super();
+    this.state = {
+      toggleNav: false
+    }
+  }
+
+  toggle = () => {
+    this.setState((prevState) => {
+      return {
+        toggleNav: !prevState.toggleNav
+      }
+    })
+    console.log(this.state.toggleNav)
+  }
 
   componentDidMount() {
     axios.get('/api/user-data').then(response => {
@@ -30,16 +47,23 @@ class Header extends Component {
             <img className="wakenow-logo" src={wakenow} />
           </div>
         </Link>
-        <div>
-          <nav className="links">
+
+        <img onClick={this.toggle} className="header-button" src={menu}/>
+
+      <div>
+          <nav className={this.state.toggleNav ? 'show' : ''}>
+          <div className="links">
             <Link style={{ textDecoration: 'none' }} to='/'><p>HOME</p></Link>
             <Link style={{ textDecoration: 'none' }} to='/products'><p>PRODUCTS</p></Link>
             <Link style={{ textDecoration: 'none' }} to='/user'><p>USER</p></Link>
             <Link style={{ textDecoration: 'none' }} to='/contact'><p>CONTACT</p></Link>
             <Link style={{ textDecoration: 'none' }} to='/cart'><img className="cart-logo" src={cartLogo} alt='cart' /></Link>
+            </div>
           </nav>
+          
+          </div>
         </div>
-      </div>
+   
     )
   }
 }

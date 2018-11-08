@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from '../../media/white-logo.png';
 import wake from '../../media/wake.png';
 import now from '../../media/now.png';
-import './Home.css';
+import './Home.scss';
 
 class Home extends Component {
 

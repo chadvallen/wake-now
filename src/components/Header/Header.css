@@ -1,64 +1,57 @@
-.header {
-    height: 80px;
-    background-image: linear-gradient(90deg, #D800FF, #00BAFF, #00FF58);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.header-button {
+    display: none;
+}
+
+@media screen and (max-width: 650px) {
+    .header-button {
+        display: initial;
+        position: fixed;
+        right: 20px;
+        z-index: 2;
+        width: 40px;
+        background: rgba(80, 80, 80, 0.5);
+        padding: 5px 7px;
+        border-radius: 5px;
+    } 
+
+    nav {
+        position: fixed;
+        right: 0;
+        top: 0px;
+        transform: translate(400px, 0px);
+        transition: .3s ease-in-out;
+        
+    }
+
+    nav div {
+        flex-direction: column;
+        width: 300px;
+        background: rgba(237, 237, 237, 0.7);
+        padding-top: 10px;
+    }
+
+    .links p {
+        color: rgb(50, 50, 50);
+        font-size: 16px;
+        padding-top: 10px;
+    }
+
+    .cart-logo {
+        margin: 0 auto;
+        padding: 10px 70px 40px 70px;
+        height: 26px;
+    }
+
+  .show {
+        transform: translate(40px, 0px)
+    }
 }
 
 
-.header-title {
-    font-family: 'FatFrank', Impact, sans-serif;
-    font-size: 26px;
-    color: white;
-}
 
-.flex-parent {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
 
-.links {
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 30px;
-    align-items: center;
-    
-}
 
-.header-logo {
-    width: 30px;
-    height: 45px;
-    margin-left: 20px;
-    margin-right: 10px;
-}
 
-.wakenow-logo {
-    width: 150px;
-}
 
-.links  p {
-    background: transparent;
-    border: none;
-    margin: 15px;
-    font-size: 13px;
-    color: black;
-    
 
-}
-
-.links p:hover {
-    color: rgb(85, 85, 85);
-}
-
-.links p:active {
-    color: rgb(255, 29, 255);
-}
-
-.cart-logo {
-    height: 20px;
-   
-    margin-left: 20px;
-}
 

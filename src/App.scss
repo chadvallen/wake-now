@@ -1,0 +1,55 @@
+@import './sass/variables.scss';
+@import './sass/mixins.scss';
+
+ .header {
+     @include flexbox();
+     height: 80px;
+     width: 100vw;
+     background-image: $background-gradient;
+     @include justify-content(space-between);
+     @include align-items(center);
+ }
+
+ .flex-parent {
+     @include flexbox();
+     @include justify-content(flex-start);
+     @include align-items(center);
+ }
+
+ .links {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 30px;
+    align-items: center;
+        p {
+        font-family: $font-stack;
+        font-size: 13px;
+        font-weight: 700;
+        color: $primary-color;
+        margin: 15px;
+    }
+}
+
+.links p:hover {
+    color: $primary-color;
+}
+
+.links p:active {
+    color: rgb(255, 29, 255);
+}
+
+.cart-logo {
+    height: 20px;
+    margin-left: 20px;
+}
+
+.header-logo {
+    width: 30px;
+    height: 45px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.wakenow-logo {
+    width: 150px;
+}

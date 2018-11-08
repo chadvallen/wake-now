@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import './App.scss'
 import Header from './components/Header/Header';
 import routes from './routes';
 
@@ -13,7 +14,6 @@ class App extends Component {
       <div className="App">
       <Header />
       {routes}
- 
       </div>
     );
   }
