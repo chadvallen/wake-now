@@ -1,5 +1,7 @@
-import React, { Component } from 'react'
-import logo from '../../media/drop.png';
+import React, { Component } from 'react';
+import logo from '../../media/white-logo.png';
+import wake from '../../media/wake.png';
+import now from '../../media/now.png';
 import './Home.css';
 
 class Home extends Component {
@@ -7,11 +9,12 @@ class Home extends Component {
   render() {
     
     return (
-      <div>
-        <h1 className="title">WAKE NOW</h1>
+      <div className="width">
+        <div className="parent-l">
+        <img className ="wake" src={wake} />
         <img className="main-logo" src={logo} alt='logo'/>
-        <br></br>
-       
+        <img className="now" src={now} />
+        </div>
       </div>
     )
   }

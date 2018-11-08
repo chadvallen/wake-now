@@ -6,6 +6,7 @@ import { userLogin, isLoggedIn } from '../../ducks/reducer';
 import './Header.css';
 import cartLogo from '../../media/cart.png';
 import headerLogo from '../../media/white-logo.png';
+import wakenow from '../../media/wakenow.png';
 
 class Header extends Component {
 
@@ -26,7 +27,7 @@ class Header extends Component {
         <Link style={{ textDecoration: 'none' }} to='/'>
           <div className="flex-parent">
             <img className="header-logo" src={headerLogo} alt='logo'/>
-            <p className="header-title">WAKE NOW</p>
+            <img className="wakenow-logo" src={wakenow} />
           </div>
         </Link>
         <div>

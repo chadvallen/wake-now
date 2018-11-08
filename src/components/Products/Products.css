@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:300');
 .product-parent {
     display: flex;
     flex-wrap: wrap;
@@ -79,7 +80,7 @@
 .link-text {
     color: rgb(243, 110, 255);
     text-decoration: none;
-    font-family: 'FatFrank', Impact, sans-serif;
+    
     font-size: 20px;
 }
 
@@ -92,8 +93,9 @@
 
 h4 {
     font-size: 20px;
-    font-family: 'FatFrank', Impact, sans-serif;
-    color: rgb(0, 235, 106);
+    font-weight: 900;
+    color: white;
+    font-family: 'Work Sans', sans-serif;
 }
 
 .detail-img {
@@ -105,5 +107,7 @@ h4 {
     max-width: 800px;
     margin: 0 auto;
     padding: 15px;
+    font-family: 'Work Sans', sans-serif;
     font-size: 20px;
+    color: white;
 }

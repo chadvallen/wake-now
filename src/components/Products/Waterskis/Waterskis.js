@@ -37,7 +37,7 @@ export default class Waterskis extends Component {
     })
     return (
       <div>
-        <h1 className="product-title">Waterskis</h1>
+        <h1 className="product-title">WATERSKIS</h1>
         <div className="product-parent">
         {waterskiList}
         </div>

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { isLoggedIn } from '../../../ducks/reducer';
+import './ProductDetail.css';
 
 class ProductDetail extends Component {
     constructor(){
@@ -22,7 +23,6 @@ class ProductDetail extends Component {
             this.setState({product: res.data})
         })
     }
-
 
     addToCart = (id, name, image_url, description, price) => {
         axios.post('/session/cart', {id, name, image_url, description, price}).then(() => {
@@ -51,6 +51,7 @@ class ProductDetail extends Component {
     handleInputs = e => {
         this.setState({[e.target.name]: e.target.value})
     }
+
 
   render() {
       const { user, loggedIn } = this.props;
