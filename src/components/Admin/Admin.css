@@ -1,8 +1,7 @@
 .parent {
     display: grid;
     grid-template-columns: 100px 120px 200px 200px 100px 100px 100px;
-    
-   width: 920px;
+    width: 920px;
     margin: 0 auto;
 }
 
@@ -23,6 +22,11 @@
 }
 
 .admin-header {
-    font-size: 30px;
+    font-size: 40px;
     margin: 20px;
+    color: rgb(200, 0, 255);
+}
+
+.inputs {
+    margin: 30px;
 }

@@ -23,11 +23,31 @@ class Admin extends Component {
         })
     }
 
+    addProduct = () => {
+        let newProduct = {
+          type: this.state.type,
+          name: this.state.name,
+          description: this.state.description,
+          image_url: this.state.image_url,
+          price: this.state.price
+        }
+        axios.post('/api/products', newProduct).then(() => {
+          console.log('Product added')
+        }).catch(error => {
+          console.log('Error on addProduct FE', error)
+        })
+      }
+    
+      handleInputs = e => {
+        this.setState({[e.target.name]: e.target.value})
+      }
+      
+
   render() {
       const { loggedIn, user } = this.props
       let productList = this.state.orders.map(item => {
           return (
-              <div className="parent">
+              <div className="parent" key={item.id}>
                 <div className="child">{item.order_id} </div>
                 <div className="child">{item.product_id} </div>
                 <div className="child">{item.name} </div>
@@ -35,7 +55,7 @@ class Admin extends Component {
                 <div className="child">{item.city} </div>
                 <div className="child">{item.state_name} </div>
                 <div className="child">{item.zipcode} </div>
-              </div>
+              </div>     
           )
       })
     return (
@@ -55,11 +75,24 @@ class Admin extends Component {
                 <div className="child">Zipcode</div>
             </div>
             {productList}
+            <div>
+                { 
+                loggedIn && user.user.admin 
+                ? <div className="inputs">
+                        <h1 className="admin-header">Add Product</h1>
+                        <p>Type: </p><input name="type" onChange={event => this.handleInputs(event)}></input><br></br>
+                        <p>Name: </p><input name="name" onChange={event => this.handleInputs(event)}></input><br></br>
+                        <p>Description: </p><input name="description" onChange={event => this.handleInputs(event)}></input><br></br>
+                        <p>Price: </p><input name="price" onChange={event => this.handleInputs(event)}></input><br></br>
+                        <p>Image Url: </p><input name="image_url" onChange={event => this.handleInputs(event)}></input><br></br>
+                        <button onClick={() => this.addProduct()}>Add Product</button>
+                  </div>
+                : console.log('Is not admin')
+                }
             </div>
-            :
-            <h2>You are not an admin</h2>
+            </div>
+            : <h2 className="admin-header">You are not an admin</h2>
         }
-
       </div>
     )
   }
