@@ -86,7 +86,7 @@ class ShoppingCart extends Component {
     const {  loggedIn } = this.props
     return (
       <div>
-        <h2>Cart</h2>
+        <h1>Cart</h1>
         { loggedIn
             ? this.state.cart.map(item => {
               return (

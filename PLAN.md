@@ -1,3 +1,6 @@
+DIGITAL OCEAN IP ADDRESS
+178.128.72.22
+
 # Personal Project - Wake Now
 
 ## Front-end

@@ -28,7 +28,7 @@ export default class Waterskis extends Component {
       return (
         <div className="product-child" key={item.id}>
           <Link to={`/products/${item.type}/${item.id}`} style={{ textDecoration: 'none' }}>
-            <h4>{item.name}</h4>
+            <h5>{item.name}</h5>
             <img src={item.image_url} alt={item.title} className="product-img"/>
             <h5>${item.price}</h5>
           </Link>

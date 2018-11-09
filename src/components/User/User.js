@@ -27,10 +27,10 @@ class User extends Component {
          { loggedIn 
           ?
           <div className="flex-parent-user">
-              <h2>User Info</h2>
+              <h1>User Info</h1>
               {console.log(user.user)}
               <img src={user.user.picture} alt={user.user.profile_name} className="user-img" />
-              <h3>{user.user.profile_name}</h3>
+              <h2>{user.user.profile_name}</h2>
               <p>{user.user.email}</p>
               <button onClick={this.logout}>Log Out</button>
           </div>

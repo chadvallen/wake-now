@@ -14,6 +14,7 @@ body {
   
 h1 {
     color: $green;
+    // color: white;
     font-size: 50px;
     margin: 20px;
     font-family: 'Work Sans', sans-serif;
@@ -21,6 +22,7 @@ h1 {
 
 h2 {
     color: $purple;
+    // color: white;
     font-size: 40px;
     margin: 25px;
     font-family: 'Work Sans', sans-serif;
@@ -28,6 +30,7 @@ h2 {
 
 h3 {
     color: $blue;
+    // color: white;
     font-size: 32px;
     font-family: 'Work Sans', sans-serif;
     font-weight: 800;
@@ -37,13 +40,20 @@ h3 {
 h4 {
     font-size: 22px;
     color: $blue;
+    // color: white;
     font-weight: 700;
     margin: 20px;
     font-family: 'Work Sans', sans-serif;
 }
 
+h5 {
+    font-size: 25px;
+    color: black;
+}
+
 p {
     color: black;
+    // color: white;
     margin: 15px;
     font-family: 'Work Sans', sans-serif;
 }

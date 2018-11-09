@@ -34,8 +34,8 @@ export default class Contact extends Component {
   render() {
     return (
       <div>
-        <h2>Contact</h2>
-        <h4>Questions, comments, and/or concerns here: </h4>
+        <h1>Contact</h1>
+        <h5>Questions, comments, and/or concerns here: </h5>
         <form id="contact-form">
             <div className="parent-contact">
             
