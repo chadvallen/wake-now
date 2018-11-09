@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:300');
+@import './variables.scss';
+
+.App {
+    text-align: center;
+}
+
+body {
+    background: rgb(228, 228, 228);
+    // background-image: $background-gradient;
+    background-position: center;
+    background-size: cover;
+}
+  
+h1 {
+    color: $green;
+    font-size: 50px;
+    margin: 20px;
+    font-family: 'Work Sans', sans-serif;
+}
+
+h2 {
+    color: $purple;
+    font-size: 40px;
+    margin: 25px;
+    font-family: 'Work Sans', sans-serif;
+}
+
+h3 {
+    color: $blue;
+    font-size: 32px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 800;
+    margin: 15px;
+}
+
+h4 {
+    font-size: 22px;
+    color: $blue;
+    font-weight: 700;
+    margin: 20px;
+    font-family: 'Work Sans', sans-serif;
+}
+
+p {
+    color: black;
+    margin: 15px;
+    font-family: 'Work Sans', sans-serif;
+}

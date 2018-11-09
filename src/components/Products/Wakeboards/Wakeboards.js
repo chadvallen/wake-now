@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './Wakeboards.css';
+import '../../../App';
 import { Link } from 'react-router-dom';
 
 export default class Wakeboards extends Component {
@@ -37,7 +37,7 @@ export default class Wakeboards extends Component {
     })
     return (
       <div>
-        <h1 className="product-title">Wakeboards</h1>
+        <h1 className="product-title">WAKEBOARDS</h1>
         <div className="product-parent">
         {wakeboardList}
         </div>

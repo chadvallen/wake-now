@@ -3,12 +3,11 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { userLogin, isLoggedIn } from '../../ducks/reducer';
-import './Header.css';
-import cartLogo from '../../media/cart.png';
 import headerLogo from '../../media/white-logo.png';
 import wakenow from '../../media/wakenow.png';
-import '../../App.scss'
+import cartLogo from '../../media/cart.png';
 import menu from '../../media/menu.png';
+import '../../App.scss'
 
 class Header extends Component {
   constructor() {
@@ -16,15 +15,6 @@ class Header extends Component {
     this.state = {
       toggleNav: false
     }
-  }
-
-  toggle = () => {
-    this.setState((prevState) => {
-      return {
-        toggleNav: !prevState.toggleNav
-      }
-    })
-    console.log(this.state.toggleNav)
   }
 
   componentDidMount() {
@@ -38,32 +28,37 @@ class Header extends Component {
     });
   }
 
+  toggle = () => {
+    this.setState((prevState) => {
+      return {
+        toggleNav: !prevState.toggleNav
+      }
+    })
+    console.log(this.state.toggleNav)
+  }
+
   render() {
     return (
       <div className="header">
         <Link style={{ textDecoration: 'none' }} to='/'>
           <div className="flex-parent">
             <img className="header-logo" src={headerLogo} alt='logo'/>
-            <img className="wakenow-logo" src={wakenow} />
+            <img className="wakenow-logo" src={wakenow} alt="wake now logo" />
           </div>
         </Link>
 
-        <img onClick={this.toggle} className="header-button" src={menu}/>
+        <img onClick={this.toggle} className="nav-button" src={menu} alt="nav button" />
 
-      <div>
-          <nav className={this.state.toggleNav ? 'show' : ''}>
-          <div className="links">
+        <nav className={this.state.toggleNav ? 'show' : ''}>
+          <div className="nav-links">
             <Link style={{ textDecoration: 'none' }} to='/'><p>HOME</p></Link>
             <Link style={{ textDecoration: 'none' }} to='/products'><p>PRODUCTS</p></Link>
             <Link style={{ textDecoration: 'none' }} to='/user'><p>USER</p></Link>
             <Link style={{ textDecoration: 'none' }} to='/contact'><p>CONTACT</p></Link>
             <Link style={{ textDecoration: 'none' }} to='/cart'><img className="cart-logo" src={cartLogo} alt='cart' /></Link>
-            </div>
-          </nav>
-          
           </div>
-        </div>
-   
+        </nav>
+      </div>
     )
   }
 }

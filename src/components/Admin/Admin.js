@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { isLoggedIn } from '../../ducks/reducer';
 import axios from 'axios';
-import './Admin.css';
+import '../../App';
 
 class Admin extends Component {
     constructor() {
@@ -47,39 +47,39 @@ class Admin extends Component {
       const { loggedIn, user } = this.props
       let productList = this.state.orders.map(item => {
           return (
-              <div className="parent" key={item.id}>
-                <div className="child">{item.order_id} </div>
-                <div className="child">{item.product_id} </div>
-                <div className="child">{item.name} </div>
-                <div className="child">{item.shipping_address} </div>
-                <div className="child">{item.city} </div>
-                <div className="child">{item.state_name} </div>
-                <div className="child">{item.zipcode} </div>
+              <div className="admin-parent" key={item.id}>
+                <div className="admin-child">{item.order_id} </div>
+                <div className="admin-child">{item.product_id} </div>
+                <div className="admin-child">{item.name} </div>
+                <div className="admin-child">{item.shipping_address} </div>
+                <div className="admin-child">{item.city} </div>
+                <div className="admin-child">{item.state_name} </div>
+                <div className="admin-child">{item.zipcode} </div>
               </div>     
           )
       })
     return (
       <div>
-        <h1 className="admin-header">Admin View</h1>
+        <h2>Admin View</h2>
         {
             loggedIn && user.user.admin
             ?
             <div>
-            <div className="parent">
-                <div className="child">Order Id </div>
-                <div className="child">Product Id </div>
-                <div className="child">Name </div>
-                <div className="child">Shipping Address </div>
-                <div className="child"> City </div>
-                <div className="child">State </div>
-                <div className="child">Zipcode</div>
+            <div className="admin-parent">
+                <div className="admin-child">Order Id </div>
+                <div className="admin-child">Product Id </div>
+                <div className="admin-child">Name </div>
+                <div className="admin-child">Shipping Address </div>
+                <div className="admin-child"> City </div>
+                <div className="admin-child">State </div>
+                <div className="admin-child">Zipcode</div>
             </div>
             {productList}
             <div>
                 { 
                 loggedIn && user.user.admin 
-                ? <div className="inputs">
-                        <h1 className="admin-header">Add Product</h1>
+                ? <div className="add-product">
+                        <h2>Add Product</h2>
                         <p>Type: </p><input name="type" onChange={event => this.handleInputs(event)}></input><br></br>
                         <p>Name: </p><input name="name" onChange={event => this.handleInputs(event)}></input><br></br>
                         <p>Description: </p><input name="description" onChange={event => this.handleInputs(event)}></input><br></br>
@@ -91,7 +91,7 @@ class Admin extends Component {
                 }
             </div>
             </div>
-            : <h2 className="admin-header">You are not an admin</h2>
+            : <h2>You are not an admin</h2>
         }
       </div>
     )

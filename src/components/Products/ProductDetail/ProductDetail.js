@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { isLoggedIn } from '../../../ducks/reducer';
-import './ProductDetail.css';
+import '../../../App';
 
 class ProductDetail extends Component {
     constructor(){

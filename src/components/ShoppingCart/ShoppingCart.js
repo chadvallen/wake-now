@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import { userLogin } from '../../ducks/reducer';
 import  StripeCheckout from 'react-stripe-checkout';
-import './ShoppingCart.css';
+import '../../App';
 
 class ShoppingCart extends Component {
   constructor(){
@@ -86,7 +86,7 @@ class ShoppingCart extends Component {
     const {  loggedIn } = this.props
     return (
       <div>
-        <h3>Cart</h3>
+        <h2>Cart</h2>
         { loggedIn
             ? this.state.cart.map(item => {
               return (

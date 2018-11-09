@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import '../../App';
 
 export default class Contact extends Component {
 
@@ -34,18 +35,17 @@ export default class Contact extends Component {
     return (
       <div>
         <h2>Contact</h2>
+        <h4>Questions, comments, and/or concerns here: </h4>
         <form id="contact-form">
-            <div>
-                <label >Name</label>
+            <div className="parent-contact">
+            
+                <label >Name: </label>
                 <input type="text" id="name" />
-            </div>
-            <div>
-                <label>Email address</label>
+                <label>Email address: </label>
                 <input type="email" id="email" aria-describedby="emailHelp" />
-            </div>
-            <div>
-                <label >Message</label>
-                <textarea rows="5" id="message"></textarea>
+                <label >Message: </label>
+                <textarea rows="10" id="message"></textarea>
+         
             </div>
             <button type="submit" onClick={(e) => this.handleSubmit(e)}>Submit</button>
         </form>

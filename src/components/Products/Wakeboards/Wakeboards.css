@@ -1,9 +1,0 @@
-.product-img {
-    max-height: 400px;
-    transition: all .2s ease-in-out;
-    padding: 20px;
-}
-
-.product-img:hover {
-    transform: scale(1.1);
-}

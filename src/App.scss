@@ -1,6 +1,8 @@
 @import './sass/variables.scss';
 @import './sass/mixins.scss';
+@import './sass/defaults.scss';
 
+// Header Styles
  .header {
      @include flexbox();
      height: 80px;
@@ -16,40 +18,296 @@
      @include align-items(center);
  }
 
- .links {
+ .nav-links {
     display: flex;
     justify-content: flex-end;
     margin-right: 30px;
     align-items: center;
         p {
         font-family: $font-stack;
-        font-size: 13px;
-        font-weight: 700;
+        font-size: 16px;
+        font-weight: 900;
         color: $primary-color;
         margin: 15px;
     }
 }
 
-.links p:hover {
-    color: $primary-color;
+.nav-links p:hover {
+    color: gray;
 }
 
-.links p:active {
-    color: rgb(255, 29, 255);
+.nav-links p:active {
+    color: black;
 }
 
 .cart-logo {
-    height: 20px;
-    margin-left: 20px;
+    height: 25px;
+    margin: auto 20px 5px 15px;
 }
 
 .header-logo {
     width: 30px;
-    height: 45px;
-    margin-left: 20px;
+    height: 50px;
+    margin-left: 50px;
     margin-right: 10px;
 }
 
 .wakenow-logo {
-    width: 150px;
+    width: 160px;
+    margin-top: 10px;
+}
+
+.nav-button {
+    display: none;
+}
+// End Header Styles
+
+
+// Home Styles
+.wake, .now {
+    height: 120px;
+    margin-top: 200px;
+}
+
+.now {
+    margin-left: 20px;
+}
+
+.main-logo {
+    height: 300px;
+    margin-top: 100px;
+}
+
+.home-parent {
+    @include flexbox();
+    @include justify-content(center);
+    margin: 60px auto;
+    width: 100%;
+}
+// End Home Styles
+
+// User Styles
+.flex-parent-user {
+    @include flexbox();
+    flex-direction: column;
+    @include align-items(center);
+}
+
+
+.user-img {
+    max-width: 300px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 8px solid $green;
+}
+// End User Styles
+
+// Product Styles
+.product-title {
+    margin-top: 200px;
+}
+
+.product-img {
+    max-height: 400px;
+    transition: all .2s ease-in-out;
+    padding: 20px;
+}
+
+.product-img:hover {
+    transform: scale(1.1);
+}
+
+.product-parent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 30px auto;
+    max-width: 95%;
+}
+
+.product-child {
+    flex-basis: 400px;
+    background: white;
+    border: 2px solid rgb(225, 244, 254);
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+}
+
+.subheader {
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.link {
+    height: 30vh;
+    background-position: center center;
+    background-size: cover;
+    width: 25vw;
+    p {
+    color: white;
+    text-decoration: none;
+    z-index: 3;
+    }
+}
+
+.overlay {
+    position: relative;
+}
+
+.overlay:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .4;
+}
+
+.overlay:hover:after {
+    opacity: 0;
+    transition: opacity .2s;
+}
+
+.wakeboard:after, .waterski:after, .tube:after, .lifevest:after {
+    background-color: black;
+}
+
+
+.wakeboard {
+    background-image: url('./media/wakeboarder.jpg'); 
+}
+
+.waterski {
+    background-image: url('./media/waterskier.jpg');
+}
+
+.tube {
+    background-image: url('./media/tubing.jpg');
+}
+
+.lifevest {
+    background-image: url('./media/lifevest1.png');
+}
+
+.link-text {
+    color: rgb(243, 110, 255);
+    text-decoration: none;
+    font-size: 20px;
+}
+
+
+.detail-img {
+    max-width: 600px;
+    margin: 20px;
+}
+
+.detail-description {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 15px;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 20px;
+}
+
+// End Product Styles
+
+
+// Contact Styles
+.parent-contact {
+    display: grid;
+    grid-template-columns: 150px 350px;
+    width: 500px;
+    margin: 20px auto;
+    row-gap: 10px;
+    column-gap: 5px;
+}
+
+label {
+    justify-self: end;
+    height: 25px;
+}
+// End Contact Styles
+
+
+// Admin Styles
+.admin-parent {
+    display: grid;
+    grid-template-columns: 100px 120px 200px 200px 100px 100px 100px;
+    width: 920px;
+    margin: 0 auto;
+}
+
+.admin-child {
+    height: 20px;
+    padding: 10px;
+   
+}
+
+.admin-parent:nth-child(2n -1) {
+    background: $green;
+}
+
+.admin-parent:nth-child(1) {
+    background-color: $blue;
+    color: $primary-color;
+    height: 50px;
+    font-size: 18px;
+}
+
+.add-product {
+    margin: 40px;
+}
+// End Admin Styles
+
+
+// Mobile View
+
+@media screen and (max-width: 650px) {
+
+    .nav-button {
+        display: initial;
+        position: fixed;
+        right: 20px;
+        z-index: 2;
+        width: 40px;
+        background: rgba(80, 80, 80, 0.5);
+        padding: 5px 7px;
+        border-radius: 5px;
+    } 
+
+    nav {
+        position: fixed;
+        right: 0;
+        top: 0px;
+        transform: translate(400px, 0px);
+        transition: .3s ease-in-out;
+        
+    }
+
+    nav div {
+        flex-direction: column;
+        width: 300px;
+        background: rgba(237, 237, 237, 0.7);
+        padding-top: 10px;
+    }
+
+    .nav-links p {
+        color: rgb(50, 50, 50);
+        font-size: 16px;
+        padding-top: 10px;
+    }
+
+    .cart-logo {
+        margin: 0 auto;
+        padding: 10px 70px 40px 70px;
+        height: 26px;
+    }
+
+    .show {
+        transform: translate(40px, 0px)
+    }
 }

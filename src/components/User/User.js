@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { userLogin, isLoggedIn } from '../../ducks/reducer';
 import axios from 'axios';
-import './User.css';
+import '../../App';
 
 class User extends Component {
 
@@ -21,28 +21,23 @@ class User extends Component {
 
   render() {
     const { user, loggedIn } = this.props;
-    console.log(user)
     return (
       <div>
          <div>
          { loggedIn 
           ?
-          <div>
-              <h3 className="user-name" >Name: {user.user.profile_name}</h3>
+          <div className="flex-parent-user">
+              <h2>User Info</h2>
+              {console.log(user.user)}
               <img src={user.user.picture} alt={user.user.profile_name} className="user-img" />
+              <h3>{user.user.profile_name}</h3>
+              <p>{user.user.email}</p>
+              <button onClick={this.logout}>Log Out</button>
           </div>
           : <div>
               <p>Not loged in</p>
+              <button onClick={this.login}>Log in</button>
             </div>
-        }
-          { loggedIn
-            ? <button onClick={this.logout}>Log Out</button>
-            : <button onClick={this.login}>Log in</button>
-          }
-          {
-            loggedIn && user.user.admin 
-            ? <p>Is admin</p>
-            : ''
           }
         </div>
       </div>

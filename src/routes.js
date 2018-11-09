@@ -9,7 +9,7 @@ import Contact from './components/Contact/Contact';
 
 export default
 <Switch>
-    <Route exact path='/' component={Home}/>
+    <Route exact path='/' component={Home} />
     <Route path='/products' component={Products} />
     <Route path='/user' component={User} />
     <Route path='/contact' component={Contact} />

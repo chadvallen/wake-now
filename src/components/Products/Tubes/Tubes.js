@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import '../Products.css';
+import '../../../App';
 import { Link } from 'react-router-dom';
 
 export default class Tubes extends Component {
@@ -35,7 +35,7 @@ export default class Tubes extends Component {
     })
     return (
       <div>
-        <h1 className="product-title">Tubes</h1>
+        <h1 className="product-title">TUBES</h1>
         <div className="product-parent">
         {tubesList}
         </div>
