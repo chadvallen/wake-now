@@ -1,43 +1,43 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import '../../../App';
+import '../../App';
 import { Link } from 'react-router-dom';
 
-export default class Tubes extends Component {
+export default class LifeVests extends Component {
   constructor(){
     super();
     this.state = {
-      tubes: []
+      lifevests: []
     }
   }
 
-  componentDidMount() {
-    this.displayTubes()
+  componentDidMount(){
+    this.displayLifeVests()
   }
 
-  displayTubes = () => {
-    axios.get('/api/products/tubes').then(res => {
-      this.setState({tubes: res.data})
+  displayLifeVests = () => {
+    axios.get('/api/products/lifevests').then(res => {
+      this.setState({lifevests: res.data})
     })
   }
 
   render() {
-    let tubesList = this.state.tubes.map(item => {
+    let lifevestList = this.state.lifevests.map(item => {
       return (
         <div className="product-child" key={item.id}>
           <Link to={`/products/${item.type}/${item.id}`} style={{ textDecoration: 'none' }}>
-            <h5>{item.name}</h5>
             <img src={item.image_url} alt={item.title} className="product-img" />
-            <h5>${item.price}</h5>
+            <h5>{item.name}</h5>
+            <p>${item.price}</p>
           </Link>
         </div>
       )
     })
     return (
       <div>
-        <h1 className="product-title">TUBES</h1>
+        <h1 className="product-title">LIFE VESTS</h1>
         <div className="product-parent">
-        {tubesList}
+        {lifevestList}
         </div>
       </div>
     )

@@ -1,11 +1,11 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom';
 import Products from './components/Products/Products';
-import Wakeboards from './components/Products/Wakeboards/Wakeboards';
-import Waterskis from './components/Products/Waterskis/Waterskis';
-import Tubes from './components/Products/Tubes/Tubes';
-import LifeVests from './components/Products/LifeVests/LifeVests';
-import ProductDetail from './components/Products/ProductDetail/ProductDetail';
+import Wakeboards from './components/Products/Wakeboards';
+import Waterskis from './components/Products/Waterskis';
+import Tubes from './components/Products/Tubes';
+import LifeVests from './components/Products/LifeVests';
+import ProductDetail from './components/Products/ProductDetail';
 
 export default  <Switch>
     <Route exact path='/products' component={Products} />

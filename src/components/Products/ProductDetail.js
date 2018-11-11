@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { isLoggedIn } from '../../../ducks/reducer';
-import '../../../App';
+import { isLoggedIn } from '../../ducks/reducer';
+import '../../App';
 
 class ProductDetail extends Component {
     constructor(){
@@ -58,7 +58,7 @@ class ProductDetail extends Component {
       let product = this.state.product.map(item => {
           return (
               <div key={item.id}>
-                  <h4 className="product-title">{item.name}</h4>
+                  <h1 className="product-title">{item.name}</h1>
                   <img src={item.image_url} alt="product" className="detail-img"/>
                   <div className="detail-description"><p>{item.description}</p></div>
                   <p>${item.price}</p>

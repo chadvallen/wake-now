@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import '../../../App';
+import '../../App';
 import { Link } from 'react-router-dom';
 
 export default class Wakeboards extends Component {
@@ -28,9 +28,9 @@ export default class Wakeboards extends Component {
       return (
         <div className="product-child" key={item.id}>
           <Link to={`/products/${item.type}/${item.id}`} style={{ textDecoration: 'none' }}>
-            <h5>{item.name}</h5>
-            <img src={item.image_url} alt={item.title} className="product-img" />
-            <h5>${item.price}</h5>
+              <img src={item.image_url} alt={item.title} className="product-img" />
+              <h5>{item.name}</h5>
+              <p>${item.price}</p>
           </Link>
         </div>
       )
