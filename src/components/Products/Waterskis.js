@@ -2,29 +2,12 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import '../../App';
 import { Link } from 'react-router-dom';
+import MyHOC from './MyHOC';
 
-export default class Waterskis extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      waterskis: []
-    }
-  }
-
-  componentDidMount() {
-    this.displayWaterskis();
-  }
-
-  displayWaterskis = () => {
-    axios.get('/api/products/waterskis').then(res => {
-      this.setState({waterskis: res.data})
-    })
-  }
-
+class Waterskis extends Component {
 
   render() {
-    let waterskiList = this.state.waterskis.map(item => {
+    let waterskiList = this.props.data.map(item => {
       return (
         <div className="product-child" key={item.id}>
           <Link to={`/products/${item.type}/${item.id}`} style={{ textDecoration: 'none' }}>
@@ -45,3 +28,5 @@ export default class Waterskis extends Component {
     )
   }
 }
+
+export default MyHOC(Waterskis, '/api/products/waterskis')

@@ -1,30 +1,12 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import '../../App';
 import { Link } from 'react-router-dom';
+import MyHOC from './MyHOC';
 
-export default class Wakeboards extends Component {
-  constructor() {
-    super();
-    this.state = {
-      wakeboards: []
-    }
-  }
-
-  componentDidMount() {
-    this.displayWakeboards()
-  }
-
-  displayWakeboards = () => {
-    axios.get('/api/products/wakeboards').then(res => {
-      this.setState({wakeboards: res.data})
-      
-    })
-  }
-
+class Wakeboards extends Component {
 
   render() {
-    let wakeboardList = this.state.wakeboards.map(item => {
+    let wakeboardList = this.props.data.map(item => {
       return (
         <div className="product-child" key={item.id}>
           <Link to={`/products/${item.type}/${item.id}`} style={{ textDecoration: 'none' }}>
@@ -45,3 +27,5 @@ export default class Wakeboards extends Component {
     )
   }
 }
+
+export default MyHOC(Wakeboards, '/api/products/wakeboards')

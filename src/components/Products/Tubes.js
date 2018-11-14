@@ -1,28 +1,11 @@
 import React, { Component } from 'react'
-import axios from 'axios';
 import '../../App';
 import { Link } from 'react-router-dom';
+import MyHOC from './MyHOC';
 
-export default class Tubes extends Component {
-  constructor(){
-    super();
-    this.state = {
-      tubes: []
-    }
-  }
-
-  componentDidMount() {
-    this.displayTubes()
-  }
-
-  displayTubes = () => {
-    axios.get('/api/products/tubes').then(res => {
-      this.setState({tubes: res.data})
-    })
-  }
-
+class Tubes extends Component {
   render() {
-    let tubesList = this.state.tubes.map(item => {
+    let tubesList = this.props.data.map(item => {
       return (
         <div className="product-child" key={item.id}>
           <Link to={`/products/${item.type}/${item.id}`} style={{ textDecoration: 'none' }}>
@@ -43,3 +26,5 @@ export default class Tubes extends Component {
     )
   }
 }
+
+export default MyHOC(Tubes, '/api/products/tubes')
