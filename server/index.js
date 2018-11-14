@@ -16,7 +16,12 @@ app.use(session({
     saveUninitialized: false
   }))
 app.use(bodyParser.json())
-massive(process.env.CONNECTION_STRING).then(db => app.set('db', db));
+
+massive(process.env.CONNECTION_STRING).then(db => {
+  app.set('db', db)
+  console.log('DB is connected 👾')
+});
+
 app.use( express.static( `${__dirname}/../build` ) );
 
 app.get('/auth/callback', UC.login);
@@ -72,7 +77,6 @@ app.post('/api/stripe', (req, res) => {
       source: token
     },
     function(err, charge) {
-      // console.log('charge', charge)
       if(err){
         res.send({
             success: false,
@@ -131,7 +135,7 @@ transporter.verify((error, success) => {
   if (error) {
     console.log(error);
   } else {
-    console.log('Server is ready to take messages');
+    console.log('Server is ready to take messages ✉️');
   }
 });
 

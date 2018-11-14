@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import productRoutes from '../../productRoutes';
 import { Link } from 'react-router-dom';
+import wakeboard from '../../media/wakeboarder.jpg';
+import waterski from '../../media/waterskier.jpg';
+import tube from '../../media/tubing.jpg';
+import lifevest from '../../media/lifevest1.png';
 import '../../App';
 
 
@@ -23,13 +27,39 @@ class Products extends Component {
         
         <div className="subheader">
       
-        <Link to='/products/wakeboards' className="link-text"><div className="wakeboard overlay link"></div>Wakeboards</Link>
-        {' '}
-        <Link to='/products/waterskis' className="link-text"><div className="waterski overlay link"></div>Waterskis</Link>
-        {' '}
-        <Link to='/products/tubes' className="link-text"><div className="tube overlay link"></div>Tubes</Link>
-        {' '}
-        <Link to='/products/lifevests' className="link-text"><div className="lifevest overlay link"></div>Life Vests</Link>
+        <Link to='/products/wakeboards'>
+          <div className="container">
+            <img src={wakeboard} className="image"/>
+             <div className="overlay">
+              <div className="text">Wakeboards</div>
+            </div>
+          </div>
+        </Link>
+        <Link to='/products/waterskis'>
+          <div className="container">
+            <img src={waterski} className="image"/>
+             <div className="overlay">
+              <div className="text">Waterskis</div>
+            </div>
+          </div>
+        </Link>
+        <Link to='/products/tubes'>
+          <div className="container">
+            <img src={tube} className="image"/>
+             <div className="overlay">
+              <div className="text">Tubes</div>
+            </div>
+          </div>
+        </Link>
+        <Link to='/products/lifevests'>
+          <div className="container">
+            <img src={lifevest} className="image"/>
+             <div className="overlay">
+              <div className="text">Life Vests</div>
+            </div>
+          </div>
+        </Link>
+
         </div>
         
         {productRoutes}

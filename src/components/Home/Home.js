@@ -6,7 +6,7 @@ import '../../App';
 
 export default function Home() {
     return (
-        <div className="container">
+        <div>
             <div className="home-parent">
                 <img className ="wake" src={wake} alt="wake" />
                 <img className="main-logo" src={logo} alt="logo" />

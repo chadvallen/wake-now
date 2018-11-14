@@ -13,7 +13,7 @@ export default class Waterskis extends Component {
   }
 
   componentDidMount() {
-    this.displayWaterskis()
+    this.displayWaterskis();
   }
 
   displayWaterskis = () => {
