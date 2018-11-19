@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
 import productRoutes from '../../productRoutes';
-import { Link } from 'react-router-dom';
-import wakeboard from '../../media/wakeboarder.jpg';
-import waterski from '../../media/waterskier.jpg';
-import tube from '../../media/tubing.jpg';
-import lifevest from '../../media/lifevest1.png';
+import { NavLink } from 'react-router-dom';
 import '../../App';
 
 
@@ -24,47 +20,22 @@ class Products extends Component {
   render() {
     return (
       <div>
-        
         <div className="subheader">
-      
-        <Link to='/products/wakeboards'>
-          <div className="container">
-            <img src={wakeboard} className="image"/>
-             <div className="overlay">
-              <div className="text">Wakeboards</div>
-            </div>
-          </div>
-        </Link>
-        <Link to='/products/waterskis'>
-          <div className="container">
-            <img src={waterski} className="image"/>
-             <div className="overlay">
-              <div className="text">Waterskis</div>
-            </div>
-          </div>
-        </Link>
-        <Link to='/products/tubes'>
-          <div className="container">
-            <img src={tube} className="image"/>
-             <div className="overlay">
-              <div className="text">Tubes</div>
-            </div>
-          </div>
-        </Link>
-        <Link to='/products/lifevests'>
-          <div className="container">
-            <img src={lifevest} className="image"/>
-             <div className="overlay">
-              <div className="text">Life Vests</div>
-            </div>
-          </div>
-        </Link>
-
+        <NavLink to='/products/wakeboards'  style={{ textDecoration: 'none' }}>
+              <div  activeClassName="active"><p className="text">WAKEBOARDS</p></div>
+        </NavLink>
+        <NavLink to='/products/waterskis' style={{ textDecoration: 'none' }}>
+              <div><p className="text">WATERSKIS</p></div>
+        </NavLink>
+        <NavLink to='/products/tubes' style={{ textDecoration: 'none' }}>
+              <div><p className="text">TUBES</p></div>
+        </NavLink>
+        <NavLink to='/products/lifevests' style={{ textDecoration: 'none' }}>
+              <div><p className="text">LIFE VESTS</p></div>
+        </NavLink>
         </div>
         
         {productRoutes}
-
-       
         
       </div>
     )

@@ -27,7 +27,7 @@ module.exports = {
               const user = users[0];
               req.session.user = user;
               req.session.cart = [];
-              res.redirect('/');
+              res.redirect('/user');
             } else {
               return req.app.get('db').create_user([
                 userData.sub,
@@ -38,7 +38,7 @@ module.exports = {
                 const newUser = newUsers[0];
                 req.session.user = newUser;
                 console.log('newUser--->', newUser)
-                res.redirect('/');
+                res.redirect('/user');
               }).catch(error => {
                 console.log('error inserting user into database', error);
                 res.status(500).json({ message: 'Error on server, sorry bro' });

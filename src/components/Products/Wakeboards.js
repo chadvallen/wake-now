@@ -19,7 +19,6 @@ class Wakeboards extends Component {
     })
     return (
       <div>
-        <h1 className="product-title">WAKEBOARDS</h1>
         <div className="product-parent">
         {wakeboardList}
         </div>

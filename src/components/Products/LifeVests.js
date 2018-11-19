@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import axios from 'axios';
 import '../../App';
 import { Link } from 'react-router-dom';
 import MyHOC from './MyHOC';
@@ -19,7 +18,6 @@ class LifeVests extends Component {
     })
     return (
       <div>
-        <h1 className="product-title">LIFE VESTS</h1>
         <div className="product-parent">
         {lifevestList}
         </div>

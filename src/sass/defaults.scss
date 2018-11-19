@@ -8,14 +8,18 @@
 
 body {
     background: rgb(228, 228, 228);
-    // background-image: $background-gradient;
-    background-position: center;
+    background-image: $background-gradient;
+    background-position: center center;
     background-size: cover;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
   
 h1 {
     color: $green;
-    // color: white;
+    color: white;
     font-size: 50px;
     margin: 20px;
     font-family: 'Work Sans', sans-serif;
@@ -23,7 +27,7 @@ h1 {
 
 h2 {
     color: $purple;
-    // color: white;
+    color: white;
     font-size: 40px;
     margin: 25px;
     font-family: 'Work Sans', sans-serif;
@@ -31,7 +35,7 @@ h2 {
 
 h3 {
     color: $blue;
-    // color: white;
+    color: white;
     font-size: 32px;
     font-family: 'Work Sans', sans-serif;
     font-weight: 800;
@@ -41,7 +45,7 @@ h3 {
 h4 {
     font-size: 22px;
     color: $blue;
-    // color: white;
+    color: white;
     font-weight: 700;
     margin: 20px;
     font-family: 'Work Sans', sans-serif;
@@ -58,8 +62,7 @@ h5 {
 
 p {
     color: black;
-    // color: white;
-    margin-bottom: 30px;
+    color: white;
     font-family: 'Work Sans', sans-serif;
     font-size: 18px;
 }

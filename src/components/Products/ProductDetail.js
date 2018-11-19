@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { isLoggedIn } from '../../ducks/reducer';
+
 import '../../App';
 
 class ProductDetail extends Component {
@@ -26,7 +27,7 @@ class ProductDetail extends Component {
 
     addToCart = (id, name, image_url, description, price) => {
         axios.post('/session/cart', {id, name, image_url, description, price}).then(() => {
-        console.log('Item added to cart');
+        alert('Item added to cart');
         })
     }
 
@@ -47,14 +48,24 @@ class ProductDetail extends Component {
         this.displayProductDetail();
     }
 
+    login = () => {
+        const redirectUri = encodeURIComponent(window.location.origin + '/auth/callback');
+        const url = `https://${process.env.REACT_APP_AUTH0_DOMAIN}/authorize?client_id=${process.env.REACT_APP_AUTH0_CLIENT_ID}&scope=openid%20profile%20email&redirect_uri=${redirectUri}&response_type=code`
+        window.location = url;
+      }
+
 
     handleInputs = e => {
         this.setState({[e.target.name]: e.target.value})
     }
 
 
+    
+
+
   render() {
       const { user, loggedIn } = this.props;
+      console.log(this.props.match.params)
       let product = this.state.product.map(item => {
           return (
               <div key={item.id}>
@@ -62,7 +73,10 @@ class ProductDetail extends Component {
                   <img src={item.image_url} alt="product" className="detail-img"/>
                   <div className="detail-description"><p>{item.description}</p></div>
                   <p>${item.price}</p>
-                  <button onClick={() => this.addToCart(item.id, item.name, item.image_url, item.description, item.price)}>Add to Cart</button>
+                  { loggedIn === false
+                  ? <Link to='/user'><button>Log in to add to cart</button></Link>
+                  : <button onClick={() => this.addToCart(item.id, item.name, item.image_url, item.description, item.price)}>Add to Cart</button>
+                  }
                   <br></br>
                   <Link to={`/products/${item.type}s`} >Back</Link>
                   {

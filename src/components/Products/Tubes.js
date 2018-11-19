@@ -18,7 +18,6 @@ class Tubes extends Component {
     })
     return (
       <div>
-        <h1 className="product-title">TUBES</h1>
         <div className="product-parent">
         {tubesList}
         </div>

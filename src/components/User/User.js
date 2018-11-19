@@ -39,6 +39,7 @@ class User extends Component {
               <button onClick={this.login}>Log in</button>
             </div>
           }
+          
         </div>
       </div>
     )

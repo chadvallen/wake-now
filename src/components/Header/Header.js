@@ -34,8 +34,9 @@ class Header extends Component {
         toggleNav: !prevState.toggleNav
       }
     })
-    console.log(this.state.toggleNav)
   }
+
+
 
   render() {
     return (
@@ -50,13 +51,14 @@ class Header extends Component {
         <img onClick={this.toggle} className="nav-button" src={menu} alt="nav button" />
 
         <nav className={this.state.toggleNav ? 'show' : ''}>
-          <div className="nav-links">
-            <Link style={{ textDecoration: 'none' }} to='/'><p>HOME</p></Link>
-            <Link style={{ textDecoration: 'none' }} to='/products'><p>PRODUCTS</p></Link>
-            <Link style={{ textDecoration: 'none' }} to='/user'><p>USER</p></Link>
-            <Link style={{ textDecoration: 'none' }} to='/contact'><p>CONTACT</p></Link>
-            <Link style={{ textDecoration: 'none' }} to='/cart'><img className="cart-logo" src={cartLogo} alt='cart' /></Link>
-          </div>
+        {console.log(this.state.toggleNav)}
+          <div>
+            <Link style={{ textDecoration: 'none' }} to='/' onClick={() => this.setState({toggleNav: false})}><p>HOME</p></Link>
+            <Link style={{ textDecoration: 'none' }} to='/products' onClick={() => this.setState({toggleNav: false})}><p>PRODUCTS</p></Link>
+            <Link style={{ textDecoration: 'none' }} to='/user' onClick={() => this.setState({toggleNav: false})}><p>USER</p></Link>
+            <Link style={{ textDecoration: 'none' }} to='/contact' onClick={() => this.setState({toggleNav: false})}><p>CONTACT</p></Link>
+            <Link style={{ textDecoration: 'none' }} to='/cart' onClick={() => this.setState({toggleNav: false})}><img className="cart-logo" src={cartLogo} alt='cart' /></Link>
+            </div>
         </nav>
       </div>
     )

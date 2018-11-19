@@ -7,7 +7,8 @@ import Tubes from './components/Products/Tubes';
 import LifeVests from './components/Products/LifeVests';
 import ProductDetail from './components/Products/ProductDetail';
 
-export default  <Switch>
+export default  
+<Switch>
     <Route exact path='/products' component={Products} />
     <Route path='/products/wakeboards' component={Wakeboards} />
     <Route path='/products/waterskis' component={Waterskis} />
