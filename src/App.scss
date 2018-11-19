@@ -74,27 +74,16 @@ nav {
 
 
 // Home Styles
-.wake, .now {
-    height: 120px;
-    margin-top: 200px;
-}
-
-.now {
-    margin-left: 20px;
-}
-
-.main-logo {
-    height: 300px;
-    margin-top: 100px;
-}
 
 .home-parent {
-    @include flexbox();
-    @include justify-content(center);
-    margin: 60px auto;
-    width: 100%;
     display: none;
 }
+
+.together {
+    height: 400px;
+    margin-top: 50px;
+}
+
 // End Home Styles
 
 // User Styles
@@ -287,6 +276,29 @@ label {
     
     .nav-button {
         display: none;
+    }
+
+    // Home Styles
+
+    .wake, .now {
+        height: 120px;
+        margin-top: 200px;
+    }
+    
+    .now {
+        margin-left: 20px;
+    }
+    
+    .main-logo {
+        height: 300px;
+        margin-top: 100px;
+    }
+    
+    .home-parent {
+        @include flexbox();
+        @include justify-content(center);
+        margin: 60px auto;
+        width: 250px;
     }
 
     body {
