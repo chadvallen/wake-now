@@ -90,9 +90,11 @@ class ShoppingCart extends Component {
         { loggedIn
             ? this.state.cart.map(item => {
               return (
-                <div className="product-child" key={item.id} >
+                <div  key={item.id} >
+                  <div className="detail-bg">
+                  <img src={item.image_url}  alt={item.name} className="detail-img"/>
+                  </div>
                   <h3>{item.name}</h3>
-                  <img src={item.image_url}  alt={item.name}/>
                   <h5>${item.price}</h5>
                   <button onClick={() => this.deleteFromCart(item.id)}>Delete</button>
                 </div>
@@ -100,15 +102,15 @@ class ShoppingCart extends Component {
               })
             : <p>Cart empty</p>
           }
-          <p>Total {this.state.total}.00</p>
+          <p className="total">Total {this.state.total}.00</p>
           <div className="z1">
           <StripeCheckout
-             token={this.onToken}
-             stripeKey="pk_test_Q2WPHWWxe9LqryczmA0WuuUx"
-             amount= {this.state.total * 100}
-             shippingAddress
-             billingAddress
-             />
+            token={this.onToken}
+            stripeKey="pk_test_Q2WPHWWxe9LqryczmA0WuuUx"
+            amount= {this.state.total * 100}
+            shippingAddress
+            billingAddress
+            />
           </div>
       </div>
     )
