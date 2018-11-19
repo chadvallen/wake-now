@@ -51,7 +51,7 @@ class Header extends Component {
         <img onClick={this.toggle} className="nav-button" src={menu} alt="nav button" />
 
         <nav className={this.state.toggleNav ? 'show' : ''}>
-        {console.log(this.state.toggleNav)}
+        {/* {console.log(this.state.toggleNav)} */}
           <div>
             <Link style={{ textDecoration: 'none' }} to='/' onClick={() => this.setState({toggleNav: false})}><p>HOME</p></Link>
             <Link style={{ textDecoration: 'none' }} to='/products' onClick={() => this.setState({toggleNav: false})}><p>PRODUCTS</p></Link>

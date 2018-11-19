@@ -21,7 +21,7 @@ h1 {
     color: $green;
     color: white;
     font-size: 50px;
-    margin: 20px;
+    margin: 10px 15px;
     font-family: 'Work Sans', sans-serif;
 }
 
@@ -53,7 +53,7 @@ h4 {
 
 h5 {
     font-size: 20px;
-    color: black;
+    color: white;
     margin-top:15px;
     font-weight: bold;
     font-family: 'Open Sans Condensed', sans-serif;
@@ -61,8 +61,8 @@ h5 {
 }
 
 p {
-    color: black;
-    // color: white;
+    font-weight: 600;
+    color: white;
     font-family: 'Work Sans', sans-serif;
     font-size: 18px;
 }
@@ -72,5 +72,5 @@ button {
     height: 40px;
     background: rgb(240, 240, 240);
     border-radius: 10px;
-    margin: 5px;
+    margin: 10px;
 }

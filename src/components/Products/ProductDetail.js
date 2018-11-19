@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { isLoggedIn } from '../../ducks/reducer';
+import arrow from '../../media/back.png';
+
 
 import '../../App';
 
@@ -52,34 +54,32 @@ class ProductDetail extends Component {
         const redirectUri = encodeURIComponent(window.location.origin + '/auth/callback');
         const url = `https://${process.env.REACT_APP_AUTH0_DOMAIN}/authorize?client_id=${process.env.REACT_APP_AUTH0_CLIENT_ID}&scope=openid%20profile%20email&redirect_uri=${redirectUri}&response_type=code`
         window.location = url;
-      }
+    }
 
 
     handleInputs = e => {
         this.setState({[e.target.name]: e.target.value})
     }
 
-
-    
-
-
-  render() {
-      const { user, loggedIn } = this.props;
-      console.log(this.props.match.params)
-      let product = this.state.product.map(item => {
-          return (
-              <div key={item.id}>
-                  <h1 className="product-title">{item.name}</h1>
-                  <img src={item.image_url} alt="product" className="detail-img"/>
-                  <div className="detail-description"><p>{item.description}</p></div>
-                  <p>${item.price}</p>
-                  { loggedIn === false
-                  ? <Link to='/user'><button>Log in to add to cart</button></Link>
-                  : <button onClick={() => this.addToCart(item.id, item.name, item.image_url, item.description, item.price)}>Add to Cart</button>
-                  }
-                  <br></br>
-                  <Link to={`/products/${item.type}s`} >Back</Link>
-                  {
+render() {
+    const { user, loggedIn } = this.props;
+    // console.log(this.props.match)
+    let product = this.state.product.map(item => {
+        return (
+            <div key={item.id} className="flex-parent-user">
+                <Link to={`/products/${item.type}s`} ><img className="back" src={arrow} alt="back"/></Link>
+                <div className="detail-bg">
+                    <img src={item.image_url} alt="product" className="detail-img"/>
+                </div>
+                    <h1>{item.name}</h1>
+                    <div><p className="detail-description">{item.description}</p></div>
+                    <p className="detail-price">${item.price}</p>
+                { loggedIn === false
+                ? <Link to='/user'><button>Log in to add to cart</button></Link>
+                : <button onClick={() => this.addToCart(item.id, item.name, item.image_url, item.description, item.price)}>Add to Cart</button>
+                }
+                <br></br>
+                {
                     loggedIn && user.user.admin 
                     ? <div>
                         <button onClick={() => this.deleteProduct(item.id)}>Remove</button>
@@ -88,25 +88,25 @@ class ProductDetail extends Component {
                         <button onClick={() => this.updatePrice(this.state.price, item.id)}>Update</button>
                     </div>
                     : console.log('Is not admin')
-                  }
-              </div>
-          )
-      })
+                }
+            </div>
+        )
+    })
 
     return (
-      <div>
+    <div>
         {product}
-      </div>
+    </div>
     )
-  }
+}
 }
 
 function mapStateToProps(state) {
     const { user, loggedIn } = state;
     return {
-      user,
-      loggedIn
+        user,
+        loggedIn
     }
-  }
+}
 
-export default connect(mapStateToProps, {isLoggedIn})(ProductDetail);
+export default withRouter(connect(mapStateToProps, {isLoggedIn})(ProductDetail));

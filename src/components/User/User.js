@@ -30,7 +30,7 @@ class User extends Component {
               {console.log(user.user)}
               <img src={user.user.picture} alt={user.user.profile_name} className="user-img" />
               <h2>{user.user.profile_name}</h2>
-              <p>{user.user.email}</p>
+              {/* <p>{user.user.email}</p> */}
               <button onClick={this.logout}>Log Out</button>
           </div>
           : <div>

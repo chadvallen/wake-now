@@ -8,6 +8,7 @@ class Wakeboards extends Component {
   render() {
     let wakeboardList = this.props.data.map(item => {
       return (
+        
         <div className="product-child" key={item.id}>
           <Link to={`/products/${item.type}/${item.id}`} style={{ textDecoration: 'none' }}>
               <img src={item.image_url} alt={item.title} className="product-img" />

@@ -10,9 +10,9 @@ import ProductDetail from './components/Products/ProductDetail';
 export default  
 <Switch>
     <Route exact path='/products' component={Products} />
-    <Route path='/products/wakeboards' component={Wakeboards} />
-    <Route path='/products/waterskis' component={Waterskis} />
-    <Route path='/products/tubes' component={Tubes} />
-    <Route path='/products/lifevests' component={LifeVests} />
+    <Route exact path='/products/wakeboards' component={Wakeboards} />
+    <Route exact path='/products/waterskis' component={Waterskis} />
+    <Route exact path='/products/tubes' component={Tubes} />
+    <Route exact path='/products/lifevests' component={LifeVests} />
     <Route path='/products/:type/:id' component={ProductDetail} />
 </Switch>

@@ -7,6 +7,7 @@ import User from './components/User/User';
 import Admin from './components/Admin/Admin';
 import Contact from './components/Contact/Contact';
 
+
 export default
 <Switch>
     <Route exact path='/' component={Home} />
@@ -15,4 +16,5 @@ export default
     <Route path='/contact' component={Contact} />
     <Route path='/cart' component={ShoppingCart} />
     <Route path='/admin' component={Admin} />
+
 </Switch>
