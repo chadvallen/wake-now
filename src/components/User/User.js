@@ -27,7 +27,6 @@ class User extends Component {
          { loggedIn 
           ?
           <div className="flex-parent-user">
-              <h1>User Info</h1>
               {console.log(user.user)}
               <img src={user.user.picture} alt={user.user.profile_name} className="user-img" />
               <h2>{user.user.profile_name}</h2>

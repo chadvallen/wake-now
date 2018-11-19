@@ -62,7 +62,15 @@ h5 {
 
 p {
     color: black;
-    color: white;
+    // color: white;
     font-family: 'Work Sans', sans-serif;
     font-size: 18px;
+}
+
+button {
+    width: 150px;
+    height: 40px;
+    background: rgb(240, 240, 240);
+    border-radius: 10px;
+    margin: 5px;
 }

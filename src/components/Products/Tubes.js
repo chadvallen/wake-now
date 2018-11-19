@@ -11,7 +11,7 @@ class Tubes extends Component {
           <Link to={`/products/${item.type}/${item.id}`} style={{ textDecoration: 'none' }}>
             <img src={item.image_url} alt={item.title} className="product-img" />
             <h5>{item.name}</h5>
-            <p>${item.price}</p>
+            <p className="price">${item.price}</p>
           </Link>
         </div>
       )

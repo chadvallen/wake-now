@@ -101,7 +101,7 @@ class ShoppingCart extends Component {
             : <p>Cart empty</p>
           }
           <p>Total {this.state.total}.00</p>
-          <div>
+          <div className="z1">
           <StripeCheckout
              token={this.onToken}
              stripeKey="pk_test_Q2WPHWWxe9LqryczmA0WuuUx"
