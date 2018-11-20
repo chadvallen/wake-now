@@ -37,6 +37,7 @@ module.exports = {
               ]).then(newUsers => {
                 const newUser = newUsers[0];
                 req.session.user = newUser;
+                req.session.cart = [];
                 console.log('newUser--->', newUser)
                 res.redirect('/user');
               }).catch(error => {

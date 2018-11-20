@@ -25,41 +25,40 @@ class Admin extends Component {
 
     addProduct = () => {
         let newProduct = {
-          type: this.state.type,
-          name: this.state.name,
-          description: this.state.description,
-          image_url: this.state.image_url,
-          price: this.state.price
+            type: this.state.type,
+            name: this.state.name,
+            description: this.state.description,
+            image_url: this.state.image_url,
+            price: this.state.price
         }
         axios.post('/api/products', newProduct).then(() => {
-          console.log('Product added')
+            console.log('Product added')
         }).catch(error => {
-          console.log('Error on addProduct FE', error)
+            console.log('Error on addProduct FE', error)
         })
-      }
+    }
     
-      handleInputs = e => {
+    handleInputs = e => {
         this.setState({[e.target.name]: e.target.value})
-      }
-      
+    }
 
-  render() {
-      const { loggedIn, user } = this.props
-      let productList = this.state.orders.map(item => {
-          return (
-              <div className="admin-parent" key={item.id}>
-                <div className="admin-child">{item.order_id} </div>
-                <div className="admin-child">{item.product_id} </div>
-                <div className="admin-child">{item.name} </div>
-                <div className="admin-child">{item.shipping_address} </div>
-                <div className="admin-child">{item.city} </div>
-                <div className="admin-child">{item.state_name} </div>
-                <div className="admin-child">{item.zipcode} </div>
-              </div>     
-          )
-      })
+    render() {
+        const { loggedIn, user } = this.props
+        let productList = this.state.orders.map(item => {
+            return (
+                <div className="admin-parent" key={item.id}>
+                    <div className="admin-child">{item.order_id} </div>
+                    <div className="admin-child">{item.product_id} </div>
+                    <div className="admin-child">{item.name} </div>
+                    <div className="admin-child">{item.shipping_address} </div>
+                    <div className="admin-child">{item.city} </div>
+                    <div className="admin-child">{item.state_name} </div>
+                    <div className="admin-child">{item.zipcode} </div>
+                </div>     
+            )
+        })
     return (
-      <div>
+        <div>
         <h2>Admin View</h2>
         {
             loggedIn && user.user.admin
@@ -78,7 +77,7 @@ class Admin extends Component {
             <div>
                 { 
                 loggedIn && user.user.admin 
-                ? <div className="add-product">
+                    ? <div className="add-product">
                         <h2>Add Product</h2>
                         <p>Type: </p><input name="type" onChange={event => this.handleInputs(event)}></input><br></br>
                         <p>Name: </p><input name="name" onChange={event => this.handleInputs(event)}></input><br></br>
@@ -86,16 +85,16 @@ class Admin extends Component {
                         <p>Price: </p><input name="price" onChange={event => this.handleInputs(event)}></input><br></br>
                         <p>Image Url: </p><input name="image_url" onChange={event => this.handleInputs(event)}></input><br></br>
                         <button onClick={() => this.addProduct()}>Add Product</button>
-                  </div>
+                    </div>
                 : console.log('Is not admin')
                 }
             </div>
             </div>
             : <h2>You are not an admin</h2>
         }
-      </div>
+    </div>
     )
-  }
+}
 }
 
 

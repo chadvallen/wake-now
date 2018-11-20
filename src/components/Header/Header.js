@@ -57,6 +57,7 @@ class Header extends Component {
             <Link style={{ textDecoration: 'none' }} to='/products' onClick={() => this.setState({toggleNav: false})}><p>PRODUCTS</p></Link>
             <Link style={{ textDecoration: 'none' }} to='/user' onClick={() => this.setState({toggleNav: false})}><p>USER</p></Link>
             <Link style={{ textDecoration: 'none' }} to='/contact' onClick={() => this.setState({toggleNav: false})}><p>CONTACT</p></Link>
+            <Link style={{ textDecoration: 'none' }} to='/orders' onClick={() => this.setState({toggleNav: false})}><p>ORDERS</p></Link>
             <Link style={{ textDecoration: 'none' }} to='/cart' onClick={() => this.setState({toggleNav: false})}><img className="cart-logo" src={cartLogo} alt='cart' /></Link>
             </div>
         </nav>

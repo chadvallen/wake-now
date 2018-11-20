@@ -274,8 +274,16 @@ label {
 .add-product {
     margin: 40px;
 }
-
 // End Admin Styles
+
+// Order Styles
+.orders-parent {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
 
 // Shopping Cart Styles
 .z1 {
@@ -315,11 +323,11 @@ label {
         align-items: center;
         transform: initial;
         height: 90px;
-        margin-right: 30px;
         background: none;
+        position: initial;
         div {
             display: flex;
-            margin-top: 0;
+            margin-top: 20px;
             p {
                 margin: 20px;
                 font-size: 18px;

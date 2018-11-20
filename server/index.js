@@ -42,7 +42,7 @@ app.get('/session/cart', (req, res) => {
 
 app.post('/session/cart', (req, res) => {
   req.session.cart.push(req.body);
-  // console.log('this is my session w cart', req.session)
+  console.log('this is my session', req.session)
   res.json({cart: req.session.cart}) 
 })
 
@@ -86,7 +86,7 @@ app.post('/api/stripe', (req, res) => {
         res.send({
         success: true,
         message: 'Success'
-     })}
+    })}
       }
     );  
 })
@@ -110,6 +110,17 @@ app.post('/api/line_items', (req, res) => {
     console.log('Error on addToLineItems', error)
   })
   req.session.cart = [];
+})
+
+app.get('/api/admin_table/:id', (req, res) => {
+  const db = req.app.get('db');
+  console.log(req.params)
+  const { id } = req.params;
+  db.get_user_order(id).then(item => {
+    res.status(200).send(item)
+  }).catch(error => {
+    console.log('Error on getUserOrder', error)
+  })
 })
 
 app.get('/api/admin_table', (req, res) => {

@@ -75,7 +75,7 @@ class ShoppingCart extends Component {
               }).catch(error => {
                 console.log('error', error)
               })
-           }}).catch(error => {
+          }}).catch(error => {
             console.log('Error on addToOrders', error)
           })
         }
@@ -102,7 +102,7 @@ class ShoppingCart extends Component {
               })
             : <p>Cart empty</p>
           }
-          <p className="total">Total {this.state.total}.00</p>
+          <p className="total">Total ${this.state.total}.00</p>
           <div className="z1">
           <StripeCheckout
             token={this.onToken}

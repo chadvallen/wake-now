@@ -6,6 +6,7 @@ import ShoppingCart from './components/ShoppingCart/ShoppingCart';
 import User from './components/User/User';
 import Admin from './components/Admin/Admin';
 import Contact from './components/Contact/Contact';
+import Orders from './components/Orders/Orders';
 
 
 export default
@@ -14,7 +15,7 @@ export default
     <Route path='/products' component={Products} />
     <Route path='/user' component={User} />
     <Route path='/contact' component={Contact} />
+    <Route path='/orders' component={Orders} />
     <Route path='/cart' component={ShoppingCart} />
     <Route path='/admin' component={Admin} />
-
 </Switch>
