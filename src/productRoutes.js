@@ -6,6 +6,7 @@ import Waterskis from './components/Products/Waterskis';
 import Tubes from './components/Products/Tubes';
 import LifeVests from './components/Products/LifeVests';
 import ProductDetail from './components/Products/ProductDetail';
+import Accessories from './components/Products/Accessories';
 
 export default  
 <Switch>
@@ -14,5 +15,6 @@ export default
     <Route exact path='/products/waterskis' component={Waterskis} />
     <Route exact path='/products/tubes' component={Tubes} />
     <Route exact path='/products/lifevests' component={LifeVests} />
+    <Route exact path='/products/accessories' component={Accessories} />
     <Route path='/products/:type/:id' component={ProductDetail} />
 </Switch>

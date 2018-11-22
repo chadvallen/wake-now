@@ -44,6 +44,9 @@ class Products extends Component {
             <NavLink to='/products/lifevests' style={{ textDecoration: 'none' }}>
                   <div><p className="text">LIFE VESTS</p></div>
             </NavLink>
+            <NavLink to='/products/accessories' style={{ textDecoration: 'none' }}>
+                  <div><p className="text">ACCESSORIES</p></div>
+            </NavLink>
           </div>
         </div>
         

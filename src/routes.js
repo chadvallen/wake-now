@@ -7,6 +7,7 @@ import User from './components/User/User';
 import Admin from './components/Admin/Admin';
 import Contact from './components/Contact/Contact';
 import Orders from './components/Orders/Orders';
+import OrderConfirmation from './components/ShoppingCart/OrderConfirmation';
 
 
 export default
@@ -17,5 +18,6 @@ export default
     <Route path='/contact' component={Contact} />
     <Route path='/orders' component={Orders} />
     <Route path='/cart' component={ShoppingCart} />
+    <Route path='/confirmation' component={OrderConfirmation} />
     <Route path='/admin' component={Admin} />
 </Switch>

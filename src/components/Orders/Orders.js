@@ -11,43 +11,76 @@ class Orders extends Component {
         }
     }
 
+    componentDidMount() {
+        this.getUserOrders();
+    }
+
     getUserOrders = () => {
         console.log('this.props.user',this.props.user)
+        this.props.user !== null && this.props.loggedIn ?
         axios.get(`/api/admin_table/${this.props.user.user.id}`).then(response => {
             console.log('response.data--->', response.data)
             this.setState({orders: response.data})
         }).catch(error => {
             console.log('Error on getUserOrders FE', error)
         })
+        :
+        console.log('User null')
     }
 
 render() {
     const { loggedIn, user } = this.props;
     let order = this.state.orders.map(item => {
+        let splitArr = item.stamp.split('T')
+        let date = splitArr[0]
+        let splitDate = date.split('-')
+        let newArr = []
+        newArr.push(splitDate[1])
+        newArr.push(splitDate[2])
+        newArr.push(splitDate[0])
+        let finalDate = newArr.join('-')
+
         return (
             <div className="orders-parent detail-bg">
-                {console.log(item)}
-                <div className="orders-child">{item.name}</div>
-                <div className="orders-child"><img src={item.image_url} alt={item.name} className="detail-img"/></div>
-                <div className="orders-child">
-                    <div>{item.shipping_address}</div>
-                    <div>{item.city}, {item.state_name} {item.zipcode}</div>
+                {console.log('item--->',item)}
+                
+                <div className="orders-date">{finalDate}</div>
+                <div className="flex-orders">
+                    <div><img src={item.image_url} alt={item.name} className="orders-img"/></div>
+                    <div className="orders-details">
+                        <div>{item.name}</div>
+                        <div className="orders-address">
+                            <div className="orders-name">{user.user.profile_name}</div>
+                            <div>{item.shipping_address}</div>
+                            <div>{item.city}, {item.state_name} {item.zipcode}</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         )
     })
     return (
     <div>
-        { loggedIn ?
+        { this.state.orders.length > 0
+        ?
+        <div>
+        { loggedIn && user.user ?
         <div>
         <h1>Order History</h1>
         {console.log(user)}
-        <h3>{user.user.profile_name}</h3>
-        <button onClick={() => this.getUserOrders()}>Click to display orders</button>
+        <h4>{user.user.profile_name}</h4>
+        {console.log('order--->', order)}
         {order}
         </div>
         :
         <h2>Not logged In</h2>
+        }
+        </div>
+        :
+        <div>
+            <h1>Not logged in</h1>
+            {this.getUserOrders()}
+        </div>
         }
     </div>
     )

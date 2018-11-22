@@ -39,6 +39,16 @@ module.exports = {
         })
     },
 
+    getAccessories: (req, res) => {
+        const db = req.app.get('db');
+        db.get_accessories().then(accessories => {
+            res.status(200).json(accessories)
+        }).catch(error => {
+            res.sendStatus(500)
+            console.log('Error on getAccessories', error)
+        })
+    },
+
     getProductDetail: (req, res) => {
         const db = req.app.get('db');
         const { id } = req.params;

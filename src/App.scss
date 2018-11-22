@@ -88,6 +88,7 @@ nav {
 
 .story {
     height: 50px;
+    margin-bottom: 20px;
 }
 
 .desktop-story {
@@ -256,18 +257,24 @@ label {
 }
 
 .admin-child {
-    height: 20px;
+    height: 30px;
     padding: 10px;
 }
 
 .admin-parent:nth-child(2n -1) {
-    background: $green;
+    background: rgba(0,0,0,0.2);
+    color: $primary-color;
+}
+
+.admin-parent:nth-child(2n) {
+    background: rgba(255,255,255,0.3);
+    color: black;
 }
 
 .admin-parent:nth-child(1) {
-    background-color: $blue;
-    color: $primary-color;
-    height: 50px;
+    background-color: $primary-color;
+    color: black;
+    height: 60px;
     font-size: 18px;
 }
 
@@ -285,6 +292,36 @@ label {
     margin-bottom: 30px;
 }
 
+.orders-date {
+    font-size: 22px;
+}
+
+.orders-img {
+    max-width: 100px;
+    margin: 20px auto;
+    margin-right: 20px;
+}
+
+.orders-details {
+    padding: 0 10px;
+}
+
+.orders-name {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.orders-address {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.flex-orders {
+    display: grid;
+    grid-template-columns: 110px 200px;
+    justify-content: center;
+    align-items: center;
+}
 // Shopping Cart Styles
 .z1 {
     z-index: 1;

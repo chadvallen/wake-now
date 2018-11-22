@@ -51,7 +51,7 @@ class ShoppingCart extends Component {
       body: token,
       amount: this.state.total * 100
     }).then(response => {
-      console.log(token.card)
+      console.log('token--->',token)
         if (response.data.success) {
           axios.post('/api/orders', {
             name: token.card.name,
@@ -79,6 +79,8 @@ class ShoppingCart extends Component {
             console.log('Error on addToOrders', error)
           })
         }
+        console.log(this.props)
+        this.props.history.push('/confirmation')
     });
   }
 

@@ -63,6 +63,7 @@ app.get('/api/products/wakeboards', PC.getWakeboards);
 app.get('/api/products/waterskis', PC.getWaterskis);
 app.get('/api/products/tubes', PC.getTubes);
 app.get('/api/products/lifevests', PC.getLifevests);
+app.get('/api/products/accessories', PC.getAccessories);
 app.get('/api/products/:id', PC.getProductDetail);
 app.post('/api/products', PC.addProduct);
 app.put('/api/products/:id', PC.updatePrice);
@@ -86,7 +87,7 @@ app.post('/api/stripe', (req, res) => {
         res.send({
         success: true,
         message: 'Success'
-    })}
+      })}
       }
     );  
 })
@@ -94,7 +95,7 @@ app.post('/api/stripe', (req, res) => {
 app.post('/api/orders', (req, res) => {
   const db = req.app.get('db');
   const { name, shipping_address, city, state_name, zipcode, user_id } = req.body;
-  db.add_to_orders(name, shipping_address, city, state_name, zipcode, user_id).then(order => {
+  db.add_to_orders({name: name, shipping_address: shipping_address, city: city, state_name: state_name, zipcode: zipcode, user_id: user_id}).then(order => {
     res.status(200).send(order)
   }).catch(error => {
     console.log('Error on addToOrders', error)

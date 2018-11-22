@@ -74,6 +74,9 @@ class Admin extends Component {
                 <div className="admin-child">Zipcode</div>
             </div>
             {productList}
+            {/* {cloudinary.applyUploadWidget('#upload_widget_opener',{ 
+                cloudName: 'demo', uploadPreset: 'blog_upload' }, 
+                (error, result) => { })} */}
             <div>
                 { 
                 loggedIn && user.user.admin 
