@@ -59,7 +59,7 @@ class Admin extends Component {
         })
     return (
         <div>
-        <h2>Admin View</h2>
+        <h1>Admin View</h1>
         {
             loggedIn && user.user.admin
             ?
@@ -80,13 +80,15 @@ class Admin extends Component {
             <div>
                 { 
                 loggedIn && user.user.admin 
-                    ? <div className="add-product">
+                    ? <div>
                         <h2>Add Product</h2>
-                        <p>Type: </p><input name="type" onChange={event => this.handleInputs(event)}></input><br></br>
-                        <p>Name: </p><input name="name" onChange={event => this.handleInputs(event)}></input><br></br>
-                        <p>Description: </p><input name="description" onChange={event => this.handleInputs(event)}></input><br></br>
-                        <p>Price: </p><input name="price" onChange={event => this.handleInputs(event)}></input><br></br>
-                        <p>Image Url: </p><input name="image_url" onChange={event => this.handleInputs(event)}></input><br></br>
+                        <div className="add-product">
+                            <p>Type: </p><input name="type" onChange={event => this.handleInputs(event)}></input>
+                            <p>Name: </p><input name="name" onChange={event => this.handleInputs(event)}></input>
+                            <p>Description: </p><textarea name="description" onChange={event => this.handleInputs(event)}></textarea>
+                            <p>Price: </p><input name="price" onChange={event => this.handleInputs(event)}></input>
+                            <p>Image Url: </p><input name="image_url" onChange={event => this.handleInputs(event)}></input>
+                        </div>
                         <button onClick={() => this.addProduct()}>Add Product</button>
                     </div>
                 : console.log('Is not admin')

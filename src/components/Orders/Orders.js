@@ -17,7 +17,8 @@ class Orders extends Component {
 
     getUserOrders = () => {
         console.log('this.props.user',this.props.user)
-        this.props.user !== null && this.props.loggedIn ?
+        this.props.user !== null && this.props.loggedIn 
+        ?
         axios.get(`/api/admin_table/${this.props.user.user.id}`).then(response => {
             console.log('response.data--->', response.data)
             this.setState({orders: response.data})
@@ -29,6 +30,7 @@ class Orders extends Component {
     }
 
 render() {
+    console.log('ORDERS', this.state.orders)
     const { loggedIn, user } = this.props;
     let order = this.state.orders.map(item => {
         let splitArr = item.stamp.split('T')
@@ -42,7 +44,6 @@ render() {
 
         return (
             <div className="orders-parent detail-bg">
-                {console.log('item--->',item)}
                 
                 <div className="orders-date">{finalDate}</div>
                 <div className="flex-orders">
@@ -59,33 +60,31 @@ render() {
             </div>
         )
     })
+
     return (
     <div>
         { this.state.orders.length > 0
-        ?
-        <div>
-        { loggedIn && user.user ?
-        <div>
-        <h1>Order History</h1>
-        {console.log(user)}
-        <h4>{user.user.profile_name}</h4>
-        {console.log('order--->', order)}
-        {order}
-        </div>
-        :
-        <h2>Not logged In</h2>
-        }
-        </div>
-        :
-        <div>
-            <h1>Not logged in</h1>
-            {this.getUserOrders()}
-        </div>
+            ?
+            <div>
+                {loggedIn && user.user 
+                ?
+                <div>
+                    <h1>Order History</h1>
+                    {console.log(user)}
+                    <h4>{user.user.profile_name}</h4>
+                    {order}
+                </div>
+                :
+                <h2>Loading...</h2>}
+            </div>
+            :
+            <div>
+                <h1>No orders placed</h1>
+            </div>
         }
     </div>
     )
 }
-
 }
 
 function mapStateToProps(state) {

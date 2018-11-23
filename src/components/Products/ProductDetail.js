@@ -63,11 +63,10 @@ class ProductDetail extends Component {
 
 render() {
     const { user, loggedIn } = this.props;
-    // console.log(this.props.match)
     let product = this.state.product.map(item => {
         return (
             <div key={item.id} className="flex-parent-user">
-                <Link to={`/products/${item.type}s`} ><img className="back" src={arrow} alt="back"/></Link>
+                <img className="back" src={arrow} alt="back" onClick={() => this.props.history.goBack()}/>
                 <div className="detail-bg">
                     <img src={item.image_url} alt="product" className="detail-img"/>
                 </div>

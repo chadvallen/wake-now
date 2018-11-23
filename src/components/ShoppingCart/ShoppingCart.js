@@ -45,6 +45,12 @@ class ShoppingCart extends Component {
     this.displayCart();
   }
 
+  login = () => {
+    const redirectUri = encodeURIComponent(window.location.origin + '/auth/callback');
+    const url = `https://${process.env.REACT_APP_AUTH0_DOMAIN}/authorize?client_id=${process.env.REACT_APP_AUTH0_CLIENT_ID}&scope=openid%20profile%20email&redirect_uri=${redirectUri}&response_type=code`
+    window.location = url;
+  }
+
   onToken = (token) => {
     axios.post('/api/stripe', {
       method: 'POST',
@@ -102,19 +108,25 @@ class ShoppingCart extends Component {
                 </div>
               )
               })
-            : <p>Cart empty</p>
+            : 
+            <div className="empty-cart">
+              <p>Cart empty</p>
+              <button onClick={this.login}>Log in</button>
+            </div>
+
           }
-          <p className="total">Total ${this.state.total}.00</p>
-          <div className="z1">
-          <StripeCheckout
-            token={this.onToken}
-            stripeKey="pk_test_Q2WPHWWxe9LqryczmA0WuuUx"
-            amount= {this.state.total * 100}
-            shippingAddress
-            billingAddress
-            />
+            <p className="total">Total ${this.state.total}.00</p>
+
+            <div className="z1">
+            <StripeCheckout
+              token={this.onToken}
+              stripeKey="pk_test_Q2WPHWWxe9LqryczmA0WuuUx"
+              amount= {this.state.total * 100}
+              shippingAddress
+              billingAddress
+              />
+            </div>
           </div>
-      </div>
     )
   }
 }

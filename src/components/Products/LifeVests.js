@@ -19,7 +19,7 @@ class LifeVests extends Component {
     return (
       <div>
         <div className="product-parent">
-        {lifevestList}
+          {lifevestList}
         </div>
       </div>
     )

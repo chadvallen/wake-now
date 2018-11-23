@@ -34,7 +34,6 @@ class User extends Component {
               <button onClick={this.logout}>Log Out</button>
           </div>
           : <div>
-              <p>Not loged in</p>
               <button onClick={this.login}>Log in</button>
             </div>
           }
