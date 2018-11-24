@@ -9,7 +9,12 @@ class Admin extends Component {
         super();
         this.state = {
             orders: [],
-            dates: []
+            dates: [],
+            image: '',
+            type: '',
+            name: '',
+            description: '',
+            price: ''
         }
     }
 
@@ -29,7 +34,7 @@ class Admin extends Component {
             type: this.state.type,
             name: this.state.name,
             description: this.state.description,
-            image_url: this.state.image_url,
+            image_url: this.state.image,
             price: this.state.price
         }
         axios.post('/api/products', newProduct).then(() => {
@@ -43,11 +48,27 @@ class Admin extends Component {
         this.setState({[e.target.name]: e.target.value})
     }
 
+    uploadWidget = () => {
+        window.cloudinary.openUploadWidget({
+            cloud_name: 'dyl34vood',
+            upload_preset: 'e2vutazy',
+            folder: 'wakenow',
+            theme: 'minimal',
+            autoMinimize: true,
+            multiple: false,
+            thumbnailTransformation: [{ width: 5, height: 100, crop: 'fit' }],
+            styles: {
+                width: "100%"
+            }
+            },
+            (error, result) => {
+                console.log('result.info', result.info)
+                        this.setState({image: result.info.url})
+            });
+    }
+
     render() {
         const { loggedIn, user } = this.props
-
-        
-            
 
         let productList = this.state.orders.map(item => {
             let splitArr = item.stamp.split('T')
@@ -60,7 +81,6 @@ class Admin extends Component {
             let finalDate = newArr.join('-');
             return (
                 <div className="admin-parent" key={item.id}>
-                    {console.log(item)}
                     <div className="admin-child">{finalDate}</div>
                     <div className="admin-child">{item.order_id} </div>
                     <div className="admin-child">{item.product_id} </div>
@@ -72,6 +92,8 @@ class Admin extends Component {
                 </div>     
             )
         })
+
+
     return (
         <div>
         <h1>Admin View</h1>
@@ -79,6 +101,9 @@ class Admin extends Component {
             loggedIn && user.user.admin
             ?
             <div>
+                <h2 className="add-product-container">Orders</h2>
+            <div>
+                
             <div className="admin-parent">
                 <div className="admin-child">Date</div>
                 <div className="admin-child">Order Id </div>
@@ -89,21 +114,23 @@ class Admin extends Component {
                 <div className="admin-child">State </div>
                 <div className="admin-child">Zipcode</div>
             </div>
+            </div>
             {productList}
 
             <div>
                 { 
                 loggedIn && user.user.admin 
-                    ? <div>
+                    ? <div className="add-product-container">
                         <h2>Add Product</h2>
                         <div className="add-product">
                             <p>Type: </p><input name="type" onChange={event => this.handleInputs(event)}></input>
                             <p>Name: </p><input name="name" onChange={event => this.handleInputs(event)}></input>
                             <p>Description: </p><textarea name="description" onChange={event => this.handleInputs(event)}></textarea>
                             <p>Price: </p><input name="price" onChange={event => this.handleInputs(event)}></input>
-                            <p>Image Url: </p><input name="image_url" onChange={event => this.handleInputs(event)}></input>
+                            <p>Image: </p><button onClick={() => this.uploadWidget()}>Upload Photo</button>
+                            
                         </div>
-                        <button onClick={() => this.addProduct()}>Add Product</button>
+                        <button onClick={() => this.addProduct()} className="add-product-button">Add Product</button>
                     </div>
                 : console.log('Is not admin')
                 }

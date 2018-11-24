@@ -275,6 +275,22 @@ label {
     grid-template-columns: 150px 100px 120px 200px 200px 100px 100px 100px;
     width: 1100px;
     margin: 0 auto;
+    &:nth-child(2n -1) {
+        background: rgba(0,0,0,0.2);
+        color: $primary-color;
+    }
+    &:nth-child(2n) {
+        background: rgba(255,255,255,0.3);
+        color: black;
+    }
+    &:nth-child(1) {
+        background-color: $primary-color;
+        color: black;
+        height: 50px;
+        font-size: 18px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }    
 }
 
 .admin-child {
@@ -282,29 +298,10 @@ label {
     padding: 10px;
 }
 
-.admin-parent:nth-child(2n -1) {
-    background: rgba(0,0,0,0.2);
-    color: $primary-color;
-}
-
-.admin-parent:nth-child(2n) {
-    background: rgba(255,255,255,0.3);
-    color: black;
-}
-
-.admin-parent:nth-child(1) {
-    background-color: $primary-color;
-    color: black;
-    height: 50px;
-    font-size: 18px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
 .add-product {
     margin: 20px;
     display: grid;
-    grid-template-columns: 120px 400px;
+    grid-template-columns: 120px 500px;
     justify-content: center;
     row-gap: 10px;
     align-items: center;
@@ -317,6 +314,21 @@ label {
         height: 20px;
         font-size: 18px;
     }
+    button {
+        margin: 5px;
+
+    }
+}
+
+.add-product-container {
+    margin-top: 60px;
+}
+
+.add-product-button {
+    margin-bottom: 200px;
+    width: 200px;
+    height: 30px;
+    background: rgb(188, 255, 188);
 }
 // End Admin Styles
 
