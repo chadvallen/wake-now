@@ -19,6 +19,16 @@ module.exports = {
         })
     },
 
+    getWakesurfs: (req, res) => {
+        const db = req.app.get('db');
+        db.get_wakesurfs().then(wakesurfs => {
+            res.status(200).json(wakesurfs)
+        }).catch(error => {
+            res.sendStatus(500)
+            console.log('Error on getWakesurfs', error)
+        })
+    },
+
     getTubes: (req, res) => {
         const db = req.app.get('db');
         db.get_tubes().then(tubes => {

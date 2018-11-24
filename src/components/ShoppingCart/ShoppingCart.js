@@ -98,13 +98,13 @@ class ShoppingCart extends Component {
         { loggedIn
             ? this.state.cart.map(item => {
               return (
-                <div  key={item.id} >
+                <div  key={item.id} className="detail-div">
                   <div className="detail-bg">
                   <img src={item.image_url}  alt={item.name} className="detail-img"/>
                   </div>
                   <h3>{item.name}</h3>
-                  <h5>${item.price}</h5>
-                  <button onClick={() => this.deleteFromCart(item.id)}>Delete</button>
+                  <h4 className="cart-price">${item.price}</h4>
+                  <button onClick={() => this.deleteFromCart(item.id)} className="cart-button">Delete</button>
                 </div>
               )
               })

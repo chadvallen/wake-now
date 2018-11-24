@@ -8,7 +8,8 @@ class Admin extends Component {
     constructor() {
         super();
         this.state = {
-            orders: []
+            orders: [],
+            dates: []
         }
     }
 
@@ -44,9 +45,23 @@ class Admin extends Component {
 
     render() {
         const { loggedIn, user } = this.props
+
+        
+            
+
         let productList = this.state.orders.map(item => {
+            let splitArr = item.stamp.split('T')
+            let date = splitArr[0]
+            let splitDate = date.split('-')
+            let newArr = []
+            newArr.push(splitDate[1])
+            newArr.push(splitDate[2])
+            newArr.push(splitDate[0])
+            let finalDate = newArr.join('-');
             return (
                 <div className="admin-parent" key={item.id}>
+                    {console.log(item)}
+                    <div className="admin-child">{finalDate}</div>
                     <div className="admin-child">{item.order_id} </div>
                     <div className="admin-child">{item.product_id} </div>
                     <div className="admin-child">{item.name} </div>
@@ -65,6 +80,7 @@ class Admin extends Component {
             ?
             <div>
             <div className="admin-parent">
+                <div className="admin-child">Date</div>
                 <div className="admin-child">Order Id </div>
                 <div className="admin-child">Product Id </div>
                 <div className="admin-child">Name </div>
@@ -74,9 +90,7 @@ class Admin extends Component {
                 <div className="admin-child">Zipcode</div>
             </div>
             {productList}
-            {/* {cloudinary.applyUploadWidget('#upload_widget_opener',{ 
-                cloudName: 'demo', uploadPreset: 'blog_upload' }, 
-                (error, result) => { })} */}
+
             <div>
                 { 
                 loggedIn && user.user.admin 
@@ -99,7 +113,7 @@ class Admin extends Component {
         }
     </div>
     )
-}
+ }
 }
 
 

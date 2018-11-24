@@ -119,7 +119,7 @@ nav {
 }
 
 .product-img:hover {
-    transform: scale(1.07);
+    transform: scale(1.1);
 }
 
 .product-parent {
@@ -127,6 +127,7 @@ nav {
     flex-wrap: wrap;
     justify-content: center;
     margin: 30px auto;
+    max-width: 1400px;
 }
 
 .product-child {
@@ -138,9 +139,14 @@ nav {
     border-radius: 5px;
 }
 
-.price {
-    margin-top: 10px;
+.name {
+    margin: 20px auto 10px auto;
+    font-size: 22px;
     color: black;
+}
+.price {
+    // margin-top: 10px;
+    color: rgb(171, 171, 171);
     font-size: 22px;
 }
 
@@ -195,7 +201,13 @@ nav {
 
 .detail-img {
     max-width: 300px;
-    margin: 50px auto 20px auto;
+    padding: 20px;
+    margin: 20px auto;
+    transition: all .2s ease-in-out;
+}
+
+.detail-img:hover {
+    transform: scale(1.2);
 }
 
 .detail-description {
@@ -246,8 +258,8 @@ label {
 // Admin Styles
 .admin-parent {
     display: grid;
-    grid-template-columns: 100px 120px 200px 200px 100px 100px 100px;
-    width: 920px;
+    grid-template-columns: 150px 100px 120px 200px 200px 100px 100px 100px;
+    width: 1100px;
     margin: 0 auto;
 }
 
@@ -346,7 +358,7 @@ label {
 
 // Desktop View
 
-@media screen and (min-width: 820px) {
+@media screen and (min-width: 900px) {
 
     body {
         background-image: linear-gradient(90deg, rgb(255, 98, 237), rgb(2, 153, 218), rgb(0, 203, 91));
@@ -455,14 +467,22 @@ label {
         height: 40px;
     }
 
+    .detail-div {
+        background: rgba(0,0,0,.2);
+        margin: 20px auto;
+        padding: 10px;
+        max-width: 800px;
+        border-radius: 10px;
+    }
+
     .detail-bg {
         max-width: 600px;
-        margin-bottom: 20px;
-        margin-top: 120px;
+        margin: 20px auto;
+        // margin-top: 120px;
     }
 
     .detail-description {
-        max-width: 600px;
+        max-width: 900px;
         line-height: 1.3;
         margin-bottom: 20px;
     }
@@ -505,4 +525,16 @@ label {
         max-width: 200px;
     }
     // End Orders Styles
+
+    // Shopping Cart Stylex
+
+    .cart-button {
+        margin: 10px;
+        width: 80px;
+        height: 30px;
+    }
+
+    .cart-price {
+        margin: 5px auto;
+    }
 }

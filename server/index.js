@@ -61,6 +61,7 @@ app.delete('/session/cart/:id', (req, res) => {
   
 app.get('/api/products/wakeboards', PC.getWakeboards);
 app.get('/api/products/waterskis', PC.getWaterskis);
+app.get('/api/products/wakesurf', PC.getWakesurfs);
 app.get('/api/products/tubes', PC.getTubes);
 app.get('/api/products/lifevests', PC.getLifevests);
 app.get('/api/products/accessories', PC.getAccessories);
