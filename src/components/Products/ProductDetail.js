@@ -3,6 +3,8 @@ import axios from 'axios';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { isLoggedIn } from '../../ducks/reducer';
+import { ToastContainer, toast } from 'react-toastify';
+import '../../sass/toastify.css';
 import arrow from '../../media/back.png';
 
 
@@ -29,8 +31,9 @@ class ProductDetail extends Component {
 
     addToCart = (id, name, image_url, description, price) => {
         axios.post('/session/cart', {id, name, image_url, description, price}).then(() => {
-        alert('Item added to cart');
+        
         })
+        this.notify();
     }
 
     deleteProduct = (id) => {
@@ -61,6 +64,10 @@ class ProductDetail extends Component {
         this.setState({[e.target.name]: e.target.value})
     }
 
+    notify = () => {
+        toast('Added to cart!', { type: toast.TYPE.INFO, autoClose: 2000, pauseOnHover: true })
+    }
+
 render() {
     const { user, loggedIn } = this.props;
     let product = this.state.product.map(item => {
@@ -75,13 +82,14 @@ render() {
                     <p className="detail-price">${item.price}</p>
                 { loggedIn === false
                 ? <Link to='/user'><button>Log in to add to cart</button></Link>
-                : <button onClick={() => this.addToCart(item.id, item.name, item.image_url, item.description, item.price)}>Add to Cart</button>
+                : <button onClick={() => this.addToCart(item.id, item.name, item.image_url, item.description, item.price)} >Add to Cart</button>
                 }
                 <br></br>
                 {
                     loggedIn && user.user.admin 
                     ? <div>
-                        <button onClick={() => this.deleteProduct(item.id)}>Remove</button>
+                        <h1>Admin View</h1>
+                        <button onClick={() => this.deleteProduct(item.id)}>Remove Product</button>
                         <p>Update Price: </p><input name='price' onChange={e => this.handleInputs(e)}></input>
                         {console.log(item.price, item.id)}
                         <button onClick={() => this.updatePrice(this.state.price, item.id)}>Update</button>
@@ -94,6 +102,8 @@ render() {
 
     return (
     <div>
+        <ToastContainer />
+
         {product}
     </div>
     )

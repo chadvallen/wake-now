@@ -43,17 +43,18 @@ render() {
         let finalDate = newArr.join('-')
 
         return (
-            <div className="orders-parent detail-bg">
-                
-                <div className="orders-date">{finalDate}</div>
-                <div className="flex-orders">
-                    <div><img src={item.image_url} alt={item.name} className="orders-img"/></div>
-                    <div className="orders-details">
-                        <div>{item.name}</div>
-                        <div className="orders-address">
-                            <div className="orders-name">{user.user.profile_name}</div>
-                            <div>{item.shipping_address}</div>
-                            <div>{item.city}, {item.state_name} {item.zipcode}</div>
+            <div>
+                <div  className="orders-parent detail-bg">
+                    <div className="flex-orders">
+                <       div className="orders-date">{finalDate}</div>
+                        <div><img src={item.image_url} alt={item.name} className="orders-img"/></div>
+                        <div className="orders-details">
+                            <div>{item.name}</div>
+                            <div className="orders-address">
+                                <div className="orders-name">{user.user.profile_name}</div>
+                                <div>{item.shipping_address}</div>
+                                <div>{item.city}, {item.state_name} {item.zipcode}</div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -73,4 +73,13 @@ button {
     background: rgb(240, 240, 240);
     border-radius: 10px;
     margin: 25px;
+    font-size: 14px;
+    &:hover {
+        background: rgb(193, 193, 193);
+        cursor: pointer;
+    }
+    &:active {
+        background: rgb(135, 135, 135);
+    }
 }
+

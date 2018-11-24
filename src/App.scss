@@ -56,15 +56,22 @@ nav {
             margin: 40px;
             font-size: 24px;
             color: white;
+            &:hover {
+                color: rgb(225, 225, 225);
+            }
+            &:active {
+                color: rgb(172, 172, 172)
+            }
         }
+        
     }
 
 }
 
 .cart-logo {
     margin: 0 auto;
-    padding: 10px;
-    height: 26px;
+    padding: 5px;
+    height: 25px;
 }
 
 .show {
@@ -190,6 +197,9 @@ nav {
     align-items: center;
     justify-content: center;
     font-weight: 900;
+    &:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
 }
 
 .detail-bg {
@@ -233,6 +243,10 @@ nav {
     position: absolute;
     left: 20px;
     margin: 20px auto 20px 20px;
+}
+
+.back:hover {
+    cursor: pointer;
 }
 // End Product Styles
 
@@ -281,8 +295,10 @@ label {
 .admin-parent:nth-child(1) {
     background-color: $primary-color;
     color: black;
-    height: 60px;
+    height: 50px;
     font-size: 18px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .add-product {
@@ -292,8 +308,14 @@ label {
     justify-content: center;
     row-gap: 10px;
     align-items: center;
+    
     textarea {
         height: 100px;
+        font-size: 16px;
+    }
+    input {
+        height: 20px;
+        font-size: 18px;
     }
 }
 // End Admin Styles
@@ -306,6 +328,8 @@ label {
     padding: 20px 0;
     margin-top: 10px;
     margin-bottom: 30px;
+    width: 95%;
+    max-width: 400px;
 }
 
 .orders-date {
@@ -322,20 +346,26 @@ label {
 }
 
 .orders-name {
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 5px;
 }
 
 .orders-address {
-    font-size: 18px;
+    font-size: 14px;
     margin-top: 20px;
 }
 
 .flex-orders {
     display: grid;
-    grid-template-columns: 110px 200px;
+    grid-template-columns: 80px 100px 160px;
     justify-content: center;
     align-items: center;
+}
+
+.orders-date {
+    transform: rotate(270deg);
+    padding: 10px 0px;
+    font-size: 14px;
 }
 // End Order Styles
 
@@ -492,6 +522,23 @@ label {
         width: 70px;
     }
 
+    .pop-down {
+            position: absolute;
+            z-index: 100;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #05d9ff;
+            text-align: center;
+            line-height: 4;
+            overflow: hidden; 
+            box-shadow: 0 0 10px black;
+            transform: translate(0px, -100px);
+            transition: .3s ease-in-out;
+    }
+
+
+
     // End Product Styles
 
 
@@ -513,17 +560,25 @@ label {
 
     // Order Styles
     .orders-parent {
-        width: 600px;
+        width: 500px;
     }
 
     .flex-orders {
-        grid-template-columns: 150px 400px;
-        margin-left: 40px;
+        grid-template-columns: 120px 120px 350px;
+        // margin-left: 40px;
     }
 
     .orders-img {
         max-width: 200px;
     }
+
+    .orders-date {
+        transform: rotate(320deg);
+        background: rgb(205, 205, 205);
+        padding: 20px 0px;
+        border-radius: 10px;
+    }
+
     // End Orders Styles
 
     // Shopping Cart Stylex
@@ -532,6 +587,7 @@ label {
         margin: 10px;
         width: 80px;
         height: 30px;
+        font-size: 12px;
     }
 
     .cart-price {
