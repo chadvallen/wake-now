@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import { userLogin } from '../../ducks/reducer';
 import  StripeCheckout from 'react-stripe-checkout';
+import { Link } from 'react-router-dom';
 import '../../App';
 
 class ShoppingCart extends Component {
@@ -90,6 +91,8 @@ class ShoppingCart extends Component {
     });
   }
 
+
+
   render() {
     const {  loggedIn } = this.props
     return (
@@ -126,6 +129,7 @@ class ShoppingCart extends Component {
               billingAddress
               />
             </div>
+            <div><Link to='/contact' style={{ textDecoration: 'none' }}><p className="contact-link">Contact us</p></Link></div>
           </div>
     )
   }

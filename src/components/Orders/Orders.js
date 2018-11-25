@@ -16,11 +16,9 @@ class Orders extends Component {
     }
 
     getUserOrders = () => {
-        console.log('this.props.user',this.props.user)
         this.props.user !== null && this.props.loggedIn 
         ?
-        axios.get(`/api/admin_table/${this.props.user.user.id}`).then(response => {
-            console.log('response.data--->', response.data)
+        axios.get(`/api/orders_table/${this.props.user.user.id}`).then(response => {
             this.setState({orders: response.data})
         }).catch(error => {
             console.log('Error on getUserOrders FE', error)

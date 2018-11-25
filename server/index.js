@@ -114,7 +114,7 @@ app.post('/api/line_items', (req, res) => {
   req.session.cart = [];
 })
 
-app.get('/api/admin_table/:id', (req, res) => {
+app.get('/api/orders_table/:id', (req, res) => {
   const db = req.app.get('db');
   console.log(req.params)
   const { id } = req.params;
@@ -125,7 +125,7 @@ app.get('/api/admin_table/:id', (req, res) => {
   })
 })
 
-app.get('/api/admin_table', (req, res) => {
+app.get('/api/orders_table', (req, res) => {
   const db = req.app.get('db');
   db.get_admin_table().then(orders => {
     res.status(200).send(orders)

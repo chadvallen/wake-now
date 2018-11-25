@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
 import '../../App';
 
 export default class Contact extends Component {
@@ -17,23 +18,28 @@ export default class Contact extends Component {
         ).then(response => {
             console.log('response', response)
             if (response.data.msg === 'success'){
-                alert("Message Sent."); 
                 this.resetForm()
-            }else if(response.data.msg === 'fail'){
+            } else if(response.data.msg === 'fail'){
                 alert("Message failed to send.")
             }
         }).catch(error => {
             console.log('Error', error)
         })
+        this.notify();
     }
 
     resetForm =() => {
         document.getElementById('contact-form').reset();
     }
 
-  render() {
+    notify = () => {
+        toast('Email submitted', { type: toast.TYPE.INFO, autoClose: 2000, pauseOnHover: true })
+    }
+
+    render() {
     return (
-      <div>
+        <div>
+        <ToastContainer />
         <h1>Contact</h1>
         <h5>Questions, comments, and/or concerns here: </h5>
         <form id="contact-form">
@@ -45,11 +51,10 @@ export default class Contact extends Component {
                 <input type="email" id="email" aria-describedby="emailHelp" />
                 <label >Message: </label>
                 <textarea rows="10" id="message"></textarea>
-         
             </div>
             <button type="submit" onClick={(e) => this.handleSubmit(e)}>Submit</button>
         </form>
-      </div>
+        </div>
     )
-  }
+    }
 }

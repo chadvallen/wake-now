@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { isLoggedIn } from '../../ducks/reducer';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
 import '../../App';
 
 class Admin extends Component {
@@ -23,7 +24,7 @@ class Admin extends Component {
     }
 
     getAdminTable = () => {
-        axios.get('/api/admin_table').then(res => {
+        axios.get('/api/orders_table').then(res => {
             // console.log(res.data)
             this.setState({orders: res.data})
         })
@@ -38,10 +39,11 @@ class Admin extends Component {
             price: this.state.price
         }
         axios.post('/api/products', newProduct).then(() => {
-            console.log('Product added')
+            this.setState({name: ''})
         }).catch(error => {
             console.log('Error on addProduct FE', error)
         })
+        this.notify();
     }
     
     handleInputs = e => {
@@ -65,6 +67,10 @@ class Admin extends Component {
                 console.log('result.info', result.info)
                         this.setState({image: result.info.url})
             });
+    }
+
+    notify = () => {
+        toast('Added to products', { type: toast.TYPE.INFO, autoClose: 2000, pauseOnHover: true })
     }
 
     render() {
@@ -96,6 +102,7 @@ class Admin extends Component {
 
     return (
         <div>
+            <ToastContainer />
         <h1>Admin View</h1>
         {
             loggedIn && user.user.admin

@@ -42,6 +42,9 @@ class ProductDetail extends Component {
         }).catch(error => {
             console.error('Error on deleteProduct FE', error)
         })
+        this.notifyDeleted();
+        setTimeout(
+        this.props.history.push('/products'), 4000)
     }
 
     updatePrice = (price, id) => {
@@ -68,8 +71,13 @@ class ProductDetail extends Component {
         toast('Added to cart!', { type: toast.TYPE.INFO, autoClose: 2000, pauseOnHover: true })
     }
 
+    notifyDeleted = () => {
+        toast('Product deleted', { type: toast.TYPE.ERROR, autoClose: 2000, pauseOnHover: true } )
+    }
+
 render() {
     const { user, loggedIn } = this.props;
+    console.log('this.props.history',this.props.history)
     let product = this.state.product.map(item => {
         return (
             <div key={item.id} className="flex-parent-user">
@@ -89,8 +97,8 @@ render() {
                     loggedIn && user.user.admin 
                     ? <div>
                         <h1>Admin View</h1>
-                        <button onClick={() => this.deleteProduct(item.id)}>Remove Product</button>
-                        <p>Update Price: </p><input name='price' onChange={e => this.handleInputs(e)}></input>
+                        <button onClick={() => this.deleteProduct(item.id)} className="remove-product">Remove Product</button>
+                        <p>Update Price: </p><input name='price' onChange={e => this.handleInputs(e)} className="update-price"></input>
                         {console.log(item.price, item.id)}
                         <button onClick={() => this.updatePrice(this.state.price, item.id)}>Update</button>
                     </div>

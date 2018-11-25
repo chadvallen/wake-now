@@ -248,6 +248,18 @@ nav {
 .back:hover {
     cursor: pointer;
 }
+
+.remove-product {
+    background: rgb(255, 144, 144);
+    &:hover {
+        background: rgb(255, 77, 77);
+    }
+}
+.update-price {
+    height: 30px;
+    width: 90px;
+    font-size: 26px;
+}
 // End Product Styles
 
 
@@ -393,6 +405,21 @@ label {
 
 .empty-cart {
     margin-top: 30px;
+}
+
+.contact-link {
+    color: white;
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px;
+    width: 150px;
+    height: 20px;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: 20px;
+    margin-bottom: 100px;
+    &:hover {
+        background: rgba(0,0,0,0.4);
+    }
 }
 // End Shopping Cart Styles
 
