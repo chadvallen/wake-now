@@ -216,10 +216,6 @@ nav {
     transition: all .2s ease-in-out;
 }
 
-.detail-img:hover {
-    transform: scale(1.2);
-}
-
 .detail-description {
     max-width: 400px;
     margin: 0 10px;
@@ -271,6 +267,9 @@ nav {
     margin: 20px auto;
     row-gap: 10px;
     column-gap: 5px;
+    input, textarea {
+        font-size: 20px;
+    }
 }
 
 label {
@@ -278,6 +277,8 @@ label {
     height: 25px;
     color: white;
 }
+
+
 // End Contact Styles
 
 
@@ -411,15 +412,29 @@ label {
     color: white;
     background: rgba(0,0,0,0.2);
     border-radius: 10px;
-    width: 150px;
+    width: 250px;
     height: 20px;
-    margin: 0 auto;
+    margin: 100px auto;
     padding: 20px;
     font-size: 20px;
     margin-bottom: 100px;
     &:hover {
         background: rgba(0,0,0,0.4);
     }
+}
+
+.cart-img {
+    max-width: 300px;
+    padding: 20px;
+    margin: 20px auto;
+}
+
+.detail-div {
+    background: rgba(0,0,0,.2);
+    margin: 20px auto;
+    padding: 10px;
+    max-width: 800px;
+    border-radius: 10px;
 }
 // End Shopping Cart Styles
 
@@ -536,18 +551,17 @@ label {
         height: 40px;
     }
 
-    .detail-div {
-        background: rgba(0,0,0,.2);
-        margin: 20px auto;
-        padding: 10px;
-        max-width: 800px;
-        border-radius: 10px;
-    }
-
     .detail-bg {
-        max-width: 600px;
+        max-width: 650px;
         margin: 20px auto;
         // margin-top: 120px;
+    }
+
+    .detail-img {
+        max-width: 500px;
+        &:hover {
+            transform: scale(1.1);
+        }
     }
 
     .detail-description {
@@ -557,7 +571,7 @@ label {
     }
 
     .back {
-        left: 20%;
+        left: 15%;
         width: 70px;
     }
 

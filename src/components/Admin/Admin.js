@@ -44,6 +44,7 @@ class Admin extends Component {
             console.log('Error on addProduct FE', error)
         })
         this.notify();
+        this.props.history.push(`/products/${this.state.type}`)
     }
     
     handleInputs = e => {

@@ -42,18 +42,19 @@ class ProductDetail extends Component {
         }).catch(error => {
             console.error('Error on deleteProduct FE', error)
         })
-        this.notifyDeleted();
-        setTimeout(
-        this.props.history.push('/products'), 4000)
+        this.notifyDeleted()
+        
     }
 
     updatePrice = (price, id) => {
         axios.put(`/api/products/${id}`, {price}).then(() => {
-            alert('Price Updated')
+            
         }).catch(error => {
             console.error('Error on updatePrice FE', error)
         })
+        this.notifyPrice();
         this.displayProductDetail();
+        
     }
 
     login = () => {
@@ -75,9 +76,12 @@ class ProductDetail extends Component {
         toast('Product deleted', { type: toast.TYPE.ERROR, autoClose: 2000, pauseOnHover: true } )
     }
 
+    notifyPrice = () => {
+        toast('Price Updated', { type: toast.TYPE.INFO, autoClose: 2000, pauseOnHover: true })
+    }
+
 render() {
     const { user, loggedIn } = this.props;
-    console.log('this.props.history',this.props.history)
     let product = this.state.product.map(item => {
         return (
             <div key={item.id} className="flex-parent-user">
@@ -99,7 +103,6 @@ render() {
                         <h1>Admin View</h1>
                         <button onClick={() => this.deleteProduct(item.id)} className="remove-product">Remove Product</button>
                         <p>Update Price: </p><input name='price' onChange={e => this.handleInputs(e)} className="update-price"></input>
-                        {console.log(item.price, item.id)}
                         <button onClick={() => this.updatePrice(this.state.price, item.id)}>Update</button>
                     </div>
                     : console.log('Is not admin')

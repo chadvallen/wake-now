@@ -103,7 +103,7 @@ class ShoppingCart extends Component {
               return (
                 <div  key={item.id} className="detail-div">
                   <div className="detail-bg">
-                  <img src={item.image_url}  alt={item.name} className="detail-img"/>
+                  <img src={item.image_url}  alt={item.name} className="cart-img"/>
                   </div>
                   <h3>{item.name}</h3>
                   <h4 className="cart-price">${item.price}</h4>
@@ -113,11 +113,14 @@ class ShoppingCart extends Component {
               })
             : 
             <div className="empty-cart">
-              <p>Cart empty</p>
+              {/* <p>Cart empty</p> */}
               <button onClick={this.login}>Log in</button>
             </div>
 
           }
+          { loggedIn 
+          ? 
+          <div>
             <p className="total">Total ${this.state.total}.00</p>
 
             <div className="z1">
@@ -129,6 +132,10 @@ class ShoppingCart extends Component {
               billingAddress
               />
             </div>
+            </div>
+            :
+            console.log('Not logged in')
+          }
             <div><Link to='/contact' style={{ textDecoration: 'none' }}><p className="contact-link">Contact us</p></Link></div>
           </div>
     )
